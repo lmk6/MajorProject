@@ -1,0 +1,38 @@
+{
+    "Agent Controller": {
+        "checkpoints": [
+            {
+                "steps": 499975,
+                "file_path": "results\\WinTry\\Agent Controller\\Agent Controller-499975.onnx",
+                "reward": 395.0,
+                "creation_time": 1708525424.4276843,
+                "auxillary_file_paths": [
+                    "results\\WinTry\\Agent Controller\\Agent Controller-499975.pt"
+                ]
+            },
+            {
+                "steps": 750006,
+                "file_path": "results\\WinTry\\Agent Controller\\Agent Controller-750006.onnx",
+                "reward": 365.7894736842105,
+                "creation_time": 1708525516.8042338,
+                "auxillary_file_paths": [
+                    "results\\WinTry\\Agent Controller\\Agent Controller-750006.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 750006,
+            "file_path": "results\\WinTry\\Agent Controller.onnx",
+            "reward": 365.7894736842105,
+            "creation_time": 1708525516.8042338,
+            "auxillary_file_paths": [
+                "results\\WinTry\\Agent Controller\\Agent Controller-750006.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}

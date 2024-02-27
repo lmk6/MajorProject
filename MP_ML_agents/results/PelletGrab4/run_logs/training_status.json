@@ -1,0 +1,38 @@
+{
+    "Agent Controller": {
+        "checkpoints": [
+            {
+                "steps": 499990,
+                "file_path": "results/PelletGrab4/Agent Controller/Agent Controller-499990.onnx",
+                "reward": 261.24909143158885,
+                "creation_time": 1708093763.8778727,
+                "auxillary_file_paths": [
+                    "results/PelletGrab4/Agent Controller/Agent Controller-499990.pt"
+                ]
+            },
+            {
+                "steps": 500032,
+                "file_path": "results/PelletGrab4/Agent Controller/Agent Controller-500032.onnx",
+                "reward": 261.2578319181879,
+                "creation_time": 1708093763.894729,
+                "auxillary_file_paths": [
+                    "results/PelletGrab4/Agent Controller/Agent Controller-500032.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500032,
+            "file_path": "results/PelletGrab4/Agent Controller.onnx",
+            "reward": 261.2578319181879,
+            "creation_time": 1708093763.894729,
+            "auxillary_file_paths": [
+                "results/PelletGrab4/Agent Controller/Agent Controller-500032.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.3.0.dev20240215+rocm6.0"
+    }
+}

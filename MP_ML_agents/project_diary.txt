@@ -1,0 +1,39 @@
+29.01 - 4.02:
+Research on Reinforced Learning on youtube and by reading some scientific articles. (Some sent by my supervisor).
+Research on ML-agents library in Unity3D, again - YT tutorials and threads on GitHub and stackoverflow.
+Preparation of the MP's outline - correction after a review with the supervisor.
+
+5.02 - 11.02:
+Trying out Unity3D with ML-agents on Windows - I did a small prototype of a model in 2D for demonstration and placed it on a website.
+Research on how to utilize the GPU for machine learning in Unity and why it is important.
+Preparing my local PC for installing the Linux environment. (Drive management).
+Resolving missing Windows Bootloader issues.
+First successful installation of Linux (Ubuntu 22.4) OS and resolving first issues like missing GPU and WiFi card drivers.
+
+12.02 - 18.02:
+After few failures and an instability met from the drivers, second installation of Ubuntu.
+Tackling further issues with the drivers. Doing a thorough research on using ROCm to emulate the use of CUDA and Tensor on AMD GPU.
+Installation of Unity3D - Unity ver 2022.3.19f1.
+Installation of ROCm drivers and a tailored PyTorch: 2.3.0.dev20240215+rocm6.0.
+Testing PyTorch and ROCm, setting up the linux environment to automate the change of environment variables and run of the python venv.
+Created a first working 3D model using Unity3D ML-agents.
+Research on what are and how to formulate research questions - I saw a few research papers and tutorials and formulated a list of questions I would like my project to answer.
+Spent the weekend on learning about Camera Vision and RayCasting in Unity3D for training.
+
+19.02 - 25.02:
+Tried alternatives for Unit VCS - Gave up due to the repo size limit (2GB)
+Begun working on utilizing RayCasting in training the model to achieve a more realistic result.
+Created a working model trained using Ray Sensors and more realistic motorics.
+Begun experimenting with the training configuration file (YAML) - it allows to change paramaters such as number of steps, layers (NN) etc.
+Spent some time testing the GPU's utilisation in training - went through TensorFlow AMD support documantation - gave up after packages' dependecies mismatch.
+Tested the training time in Linux and Windows enivronments for comparison and to check if a single project can be run on a different OS - results are surprising, Win+CPU seems to be faster than GPU on Linux.
+Carrying on with the research on Windows using CPU due to the apparent faster training time and ease of use (no unexpected behaviour, better support).
+Modified the number of training steps to 750000 and enhanced the reward system to experiment:
+	Penalty for every move - Agent became less uncertain, rushes towards the target.
+	Reward for rays hitting the target- Agent cheated the reward system, got stuck in a single place looking at the target to receive the reward, reward for looking is higher than the penalty for taking an action.
+Outlined the research questions.
+Working on automation scripts.
+
+26.02 - 03.03:
+Carrying on with automating scripts - .bat files and python subprocess library to run commands and display output.
+Running agents training with more hidden units and more layers (256 | 3) vs (128 | 2)
