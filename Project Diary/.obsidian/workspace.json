@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "227b370a601783a4",
+    "type": "split",
+    "children": [
+      {
+        "id": "a9177a6a0e4c481c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4e6e3c8359ee2453",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Weekly/Week 2.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "79dc61a298a4c681",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Weekly/Week 5.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fcc23a57f40949e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "fc97ac4660f68308",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3ad3e56110d64356",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "6d06a99516100db7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1615532a2e66ccbe",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "feb4c06893d182ce",
+    "type": "split",
+    "children": [
+      {
+        "id": "f27e58b394130209",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "11542599fbd391d0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Weekly/Week 5.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3662c11a3fd7e9af",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Weekly/Week 5.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0797ee45a08f3e7a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "257d86943e9a1500",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Weekly/Week 5.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "79dc61a298a4c681",
+  "lastOpenFiles": [
+    "Weekly/Week 1.md",
+    "Observations.md",
+    "Weekly/Week 5.md",
+    "Weekly",
+    "Weekly/Week 4.md",
+    "Weekly/Week 2.md",
+    "Weekly/Week 3.md",
+    "Welcome.md",
+    "create a link.md"
+  ]
+}
