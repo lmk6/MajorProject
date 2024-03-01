@@ -1,46 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SwitchCameras : MonoBehaviour
 {
-    [SerializeField] private GameObject camera_1;
-    [SerializeField] private GameObject camera_2;
-    [SerializeField] private GameObject camera_3;
-
-    private bool _manager;
     private GameObject _activeCamera;
+    private Camera[] _cameras;
 
-    private int _cameraState;
+    private int _cameraIndex;
     // Start is called before the first frame update
 
     private void ManageCamera()
     {
-        if(_activeCamera != null) _activeCamera.SetActive(false);
-        _activeCamera = _cameraState switch
-        {
-            0 => camera_1,
-            1 => camera_2,
-            2 => camera_3,
-            _ => camera_1
-        };
-        if (_cameraState >= 2)
-        {
-            _cameraState = 0;
-        }
-        else
-        {
-            _cameraState += 1;
-        }
-        _activeCamera.SetActive(true);
+        if (_cameras.Length == 0) return;
+        
+        _cameras[_cameraIndex].gameObject.SetActive(false);
+
+        _cameraIndex = (_cameraIndex + 1) % _cameras.Length;
+            
+        _cameras[_cameraIndex].gameObject.SetActive(true);
     }
 
     void Start()
     {
-        camera_1.SetActive(false);
-        camera_2.SetActive(false);
-        camera_3.SetActive(false);
-        ManageCamera();
+        _cameras = FindObjectsOfType<Camera>();
+        if (_cameras.Length == 0) return;
+        foreach (var camera1 in _cameras)
+        {
+            camera1.gameObject.SetActive(false);
+        }
+        _cameras[_cameraIndex].gameObject.SetActive(true);
     }
 
     // Update is called once per frame

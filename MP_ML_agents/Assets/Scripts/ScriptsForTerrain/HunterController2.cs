@@ -13,7 +13,7 @@ namespace ScriptsForTerrain
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private Terrain terrain;
         [SerializeField] private float maximumHeight = 3f;
-        [SerializeField] private GameObject raySensor = null;
+        [SerializeField] private GameObject raySensor;
 
         private Rigidbody rb;
 
@@ -23,7 +23,7 @@ namespace ScriptsForTerrain
         private float _smallPenalty = -0.5f;
         private float _stepPenalty = -0.05f;
 
-        private float _rayAngle = 0f;
+        private float _rayAngle;
         private float _maxAngle = 45f;
         private float _angleStep = 5f;
 
@@ -56,8 +56,6 @@ namespace ScriptsForTerrain
             float moveRotate = actions.ContinuousActions[0];
             float moveForward = actions.ContinuousActions[1];
             float angleChoice = actions.ContinuousActions[2];
-            
-            Debug.Log(angleChoice);
 
             // Vector3 velocity = new Vector3(moveX, 0f, moveZ);
             // velocity = velocity.normalized * Time.deltaTime * moveSpeed;
@@ -84,6 +82,12 @@ namespace ScriptsForTerrain
         {
             Vector3 terrainPosition = terrain.transform.position;
             Vector3 terrainSize = terrain.terrainData.size;
+            
+            // Get the position of the parent GameObject
+            Vector3 parentPosition = terrain.transform.parent != null ? terrain.transform.parent.position : Vector3.zero;
+
+            // Adjust the terrain position by the parent's position
+            terrainPosition += parentPosition;
 
             float minX = terrainPosition.x;
             float maxX = terrainPosition.x + terrainSize.x;
@@ -124,6 +128,7 @@ namespace ScriptsForTerrain
         {
             if (!(transform.localPosition.y < 0)) return;
             AddReward(_fullPenalty * 2);
+            classObject.EndEpisode();
             EndEpisode();
         }
 

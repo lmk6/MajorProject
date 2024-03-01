@@ -13,6 +13,7 @@ namespace ScriptsForTerrain
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private Terrain terrain;
         [SerializeField] private float maximumHeight = 3f;
+        [SerializeField] private GameObject raySensor;
 
         [SerializeField] private int timeForEpisode;
         private float _timeLeft;
@@ -25,11 +26,12 @@ namespace ScriptsForTerrain
         private float _fullPenalty = -50f;
         private float _smallPenalty = -0.5f;
         private float _stepPenalty = -0.05f;
+        
+        private float _rayAngle;
+        private float _maxAngle = 45f;
+        private float _angleStep = 5f;
 
         private Rigidbody rb;
-
-        private float _width;
-        private float _length;
 
         public override void Initialize()
         {
@@ -52,12 +54,14 @@ namespace ScriptsForTerrain
         {
             sensor.AddObservation(transform.localPosition);
             // sensor.AddObservation(target.localPosition);
+            sensor.AddObservation(_rayAngle);
         }
 
         public override void OnActionReceived(ActionBuffers actions)
         {
             float moveRotate = actions.ContinuousActions[0];
             float moveForward = actions.ContinuousActions[1];
+            float angleChoice = actions.ContinuousActions[2];
 
             // Vector3 velocity = new Vector3(moveX, 0f, moveZ);
             // velocity = velocity.normalized * Time.deltaTime * moveSpeed;
@@ -66,6 +70,8 @@ namespace ScriptsForTerrain
             rb.MovePosition(transform.position + transform.forward * moveForward * moveSpeed * Time.deltaTime);
             transform.Rotate(0f, moveRotate * moveSpeed, 0f, Space.Self);
 
+            AdjustRaySensorAngle(angleChoice);
+            
             ApplyPenalties();
         }
 
@@ -74,18 +80,27 @@ namespace ScriptsForTerrain
             ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
             continuousActions[0] = Input.GetAxisRaw("Horizontal");
             continuousActions[1] = Input.GetAxisRaw("Vertical");
+            continuousActions[2] = Input.GetKey(KeyCode.Q) ? -1f : (Input.GetKey(KeyCode.E) ? 1f : 0f);
             // continuousActions[1] = Input.GetKey(KeyCode.Space) ? 1.0f : 0.0f;;
         }
 
         private Vector3? GetStartingPosition()
         {
-            Vector3 terrainPosition = terrain.transform.position;
+            Vector3 terrainPosition = terrain.transform.localPosition;
             Vector3 terrainSize = terrain.terrainData.size;
+            
+            // Get the position of the parent GameObject
+            Vector3 parentPosition = terrain.transform.parent != null ? terrain.transform.parent.position : Vector3.zero;
+
+            // Adjust the terrain position by the parent's position
+            terrainPosition += parentPosition;
 
             float minX = terrainPosition.x;
             float maxX = terrainPosition.x + terrainSize.x;
             float minZ = terrainPosition.z;
             float maxZ = terrainPosition.z + terrainSize.z;
+            Debug.Log("minX: " + minX + ", maxX: " + maxX);
+            Debug.Log("minZ: " + minZ + ", maxZ: " + maxZ);
 
             float x = Random.Range(minX, maxX);
             float z = Random.Range(minZ, maxZ);
@@ -93,6 +108,17 @@ namespace ScriptsForTerrain
 
             if (y > maximumHeight) return null;
             return new Vector3(x, y, z);
+        }
+
+        private void AdjustRaySensorAngle(float angleChoice)
+        {
+            if (raySensor == null || angleChoice == 0) return; 
+            _rayAngle = angleChoice > 0 ? 
+                Mathf.Min(_rayAngle + _angleStep, _maxAngle) : 
+                Mathf.Max(_rayAngle - _angleStep, -_maxAngle);
+
+            var currentRotation = raySensor.transform.localRotation.eulerAngles;
+            raySensor.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
         }
 
         private void Update()
@@ -115,6 +141,7 @@ namespace ScriptsForTerrain
         {
             if (!(transform.localPosition.y < 0)) return;
             AddReward(_fullPenalty * 2);
+            classObject.EndEpisode();
             EndEpisode();
         }
 
