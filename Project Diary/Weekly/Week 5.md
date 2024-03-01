@@ -87,3 +87,18 @@ Migrating project diary to Obsidian Vault (LaTeX).
 #### Obstacles met:
 - No knowledge of environment shaping in Unity
 - Need to understand what the eventual plugin will have to capture.
+# Friday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Read the ML-Agents documentation covering custom plugins and their implementation.
+- Went through the Example code and learned about custom trainers. They seem quite complicated to achieve. though.
+- Chose a few assets from the Unity Asset Store to use in the project.
+- Created 2 new environments in Unity3D Terrain editor. The second one is usable for the project.
+- Populated the terrain with trees and added a collider to them for more realistic results.
+- Worked on the physics of the Agent - the ragdolling is quite concerning - need to be fixed with respect to the Ray Sensor.
+#### To accomplish today:
+- Fix the ragdolling issue - one solution is to remove rotation completely and allow the agent to adjust the angle of the Ray Sensor Component.
+- Run the model in the new environments.
+- Take notes of the observation.
+#### Obstacles met:
+- I lack knowledge of the Unity3D physics engine on that matter - some math functions would be able to achieve what I desire, however, it would take an unknown amount of time to learn them.
