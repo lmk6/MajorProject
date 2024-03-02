@@ -102,3 +102,16 @@ Migrating project diary to Obsidian Vault (LaTeX).
 - Take notes of the observation.
 #### Obstacles met:
 - I lack knowledge of the Unity3D physics engine on that matter - some math functions would be able to achieve what I desire, however, it would take an unknown amount of time to learn them.
+# Saturday
+### Daily Scrum:
+#### Accomplished yesterday:
+- To solve the ragdoll problem, agent's rotation is locked and the additional weight is being added, for stability. The agent's collider is swapped from cube to capsule for less strict surface contact. ***NEW ISSUE CAUSED:*** Ray sensor is not rotating as well - reduces the possible scanning area for the agents.
+- To solve the insufficient environment scanning, I implemented a rotation action for Ray sensor - Agent can rotate every 5 degrees up to 45 degrees each way (up and down) form the starting position. The solution tested and working successfully in a single environment run.
+- Spawning in a single environment - was hard to achieve due to uneven terrain and local position in scene like-issues. Temporarily solved - to be looked into.
+#### To accomplish today:
+- Fix the spawning - perhaps a new algorithm
+- Run the training in the new environment.
+- Take notes of the observations.
+
+#### Obstacles met:
+- Spawning issue can be solved in two ways - either by creating an algorithm or by placing spawning area object (less flexible but easier and more predictable).

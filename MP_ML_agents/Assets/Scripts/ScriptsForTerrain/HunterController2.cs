@@ -14,6 +14,7 @@ namespace ScriptsForTerrain
         [SerializeField] private Terrain terrain;
         [SerializeField] private float maximumHeight = 3f;
         [SerializeField] private GameObject raySensor;
+        [SerializeField] private float spawnBoundary = 20f;
 
         private Rigidbody rb;
 
@@ -35,13 +36,8 @@ namespace ScriptsForTerrain
 
         public override void OnEpisodeBegin()
         {
-            var newPosition = GetStartingPosition();
-            while (newPosition is null)
-            {
-                newPosition = GetStartingPosition();
-            }
-
-            transform.localPosition = newPosition.Value;
+            var spawnController = FindObjectOfType<SpawnController>();
+            transform.localPosition = spawnController.GetSpawnPoint();
         }
 
         public override void CollectObservations(VectorSensor sensor)
@@ -76,30 +72,6 @@ namespace ScriptsForTerrain
             continuousActions[1] = Input.GetAxisRaw("Vertical");
             continuousActions[2] = Input.GetKey(KeyCode.Q) ? -1f : (Input.GetKey(KeyCode.E) ? 1f : 0f);
             // continuousActions[1] = Input.GetKey(KeyCode.Space) ? 1.0f : 0.0f;;
-        }
-
-        private Vector3? GetStartingPosition()
-        {
-            Vector3 terrainPosition = terrain.transform.position;
-            Vector3 terrainSize = terrain.terrainData.size;
-            
-            // Get the position of the parent GameObject
-            Vector3 parentPosition = terrain.transform.parent != null ? terrain.transform.parent.position : Vector3.zero;
-
-            // Adjust the terrain position by the parent's position
-            terrainPosition += parentPosition;
-
-            float minX = terrainPosition.x;
-            float maxX = terrainPosition.x + terrainSize.x;
-            float minZ = terrainPosition.z;
-            float maxZ = terrainPosition.z + terrainSize.z;
-
-            float x = Random.Range(minX, maxX);
-            float z = Random.Range(minZ, maxZ);
-            float y = terrain.SampleHeight(new Vector3(x, 0f, z));
-
-            if (y > maximumHeight) return null;
-            return new Vector3(x, y, z);
         }
 
         private void AdjustRaySensorAngle(float angleChoice)

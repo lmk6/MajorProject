@@ -14,6 +14,7 @@ namespace ScriptsForTerrain
         [SerializeField] private Terrain terrain;
         [SerializeField] private float maximumHeight = 3f;
         [SerializeField] private GameObject raySensor;
+        [SerializeField] private float spawnBoundary = 20f;
 
         [SerializeField] private int timeForEpisode;
         private float _timeLeft;
@@ -41,13 +42,15 @@ namespace ScriptsForTerrain
         public override void OnEpisodeBegin()
         {
             EpisodeTimerNew();
-            var newPosition = GetStartingPosition();
-            while (newPosition is null)
-            {
-                newPosition = GetStartingPosition();
-            }
-
-            transform.localPosition = newPosition.Value;
+            // var newPosition = GetStartingPosition();
+            // while (newPosition is null)
+            // {
+            //     newPosition = GetStartingPosition();
+            // }
+            //
+            // transform.localPosition = (Vector3) newPosition;
+            var spawnController = FindObjectOfType<SpawnController>();
+            transform.localPosition = spawnController.GetSpawnPoint();
         }
 
         public override void CollectObservations(VectorSensor sensor)
@@ -88,17 +91,11 @@ namespace ScriptsForTerrain
         {
             Vector3 terrainPosition = terrain.transform.localPosition;
             Vector3 terrainSize = terrain.terrainData.size;
-            
-            // Get the position of the parent GameObject
-            Vector3 parentPosition = terrain.transform.parent != null ? terrain.transform.parent.position : Vector3.zero;
 
-            // Adjust the terrain position by the parent's position
-            terrainPosition += parentPosition;
-
-            float minX = terrainPosition.x;
-            float maxX = terrainPosition.x + terrainSize.x;
-            float minZ = terrainPosition.z;
-            float maxZ = terrainPosition.z + terrainSize.z;
+            float minX = terrainPosition.x + spawnBoundary;
+            float maxX = terrainPosition.x + terrainSize.x - spawnBoundary;
+            float minZ = terrainPosition.z + spawnBoundary;
+            float maxZ = terrainPosition.z + terrainSize.z - spawnBoundary;
             Debug.Log("minX: " + minX + ", maxX: " + maxX);
             Debug.Log("minZ: " + minZ + ", maxZ: " + maxZ);
 
@@ -107,6 +104,7 @@ namespace ScriptsForTerrain
             float y = terrain.SampleHeight(new Vector3(x, 0f, z));
 
             if (y > maximumHeight) return null;
+            y += 0.5f;
             return new Vector3(x, y, z);
         }
 
