@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Weekly/Week 2.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "79dc61a298a4c681",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Observations.md",
+                "file": "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Observations.md",
+                "file": "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Observations.md",
+                "file": "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Observations.md"
+                "file": "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md"
               }
             }
           }
@@ -159,10 +146,18 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "79dc61a298a4c681",
+  "active": "4e6e3c8359ee2453",
   "lastOpenFiles": [
-    "Weekly/Week 5.md",
+    "Cumulativ.md",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PolicyLoss.png",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/CumulativeReward.png",
+    "Cumulative.md",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03",
+    "Observations/Realistic Environment",
     "Observations.md",
+    "Observations",
+    "Weekly/Week 5.md",
     "Weekly/Week 4.md",
     "Weekly/Week 3.md",
     "Weekly/Week 2.md",
