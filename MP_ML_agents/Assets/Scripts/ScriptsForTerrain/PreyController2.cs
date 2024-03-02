@@ -87,27 +87,6 @@ namespace ScriptsForTerrain
             // continuousActions[1] = Input.GetKey(KeyCode.Space) ? 1.0f : 0.0f;;
         }
 
-        private Vector3? GetStartingPosition()
-        {
-            Vector3 terrainPosition = terrain.transform.localPosition;
-            Vector3 terrainSize = terrain.terrainData.size;
-
-            float minX = terrainPosition.x + spawnBoundary;
-            float maxX = terrainPosition.x + terrainSize.x - spawnBoundary;
-            float minZ = terrainPosition.z + spawnBoundary;
-            float maxZ = terrainPosition.z + terrainSize.z - spawnBoundary;
-            Debug.Log("minX: " + minX + ", maxX: " + maxX);
-            Debug.Log("minZ: " + minZ + ", maxZ: " + maxZ);
-
-            float x = Random.Range(minX, maxX);
-            float z = Random.Range(minZ, maxZ);
-            float y = terrain.SampleHeight(new Vector3(x, 0f, z));
-
-            if (y > maximumHeight) return null;
-            y += 0.5f;
-            return new Vector3(x, y, z);
-        }
-
         private void AdjustRaySensorAngle(float angleChoice)
         {
             if (raySensor == null || angleChoice == 0) return; 

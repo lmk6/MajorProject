@@ -281,7 +281,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: a3db62625dffaad4abbc799c02e05575, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Prey Controller
@@ -337,6 +337,7 @@ MonoBehaviour:
   terrain: {fileID: 0}
   maximumHeight: 10
   raySensor: {fileID: 3664160600085980681}
+  spawnBoundary: 20
   timeForEpisode: 1
 --- !u!114 &6321590178909390957
 MonoBehaviour:

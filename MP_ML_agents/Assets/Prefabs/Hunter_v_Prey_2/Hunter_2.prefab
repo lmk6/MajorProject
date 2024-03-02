@@ -223,7 +223,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 3217d6fa1e61d124c9a021d79fd34195, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Hunter Controller
@@ -280,6 +280,7 @@ MonoBehaviour:
   terrain: {fileID: 0}
   maximumHeight: 1
   raySensor: {fileID: 1037183570743054117}
+  spawnBoundary: 20
 --- !u!114 &8161405015709812086
 MonoBehaviour:
   m_ObjectHideFlags: 0
