@@ -13,7 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Weekly/Week 5.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "63e98aa5b8a134c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "a9f2a1635112a535",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "42e852f74167e288",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Research Questions.md",
                 "mode": "source",
                 "source": false
               }
@@ -146,22 +177,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4e6e3c8359ee2453",
+  "active": "63e98aa5b8a134c5",
   "lastOpenFiles": [
-    "Cumulativ.md",
+    "Weekly/Week 5.md",
+    "Research Questions.md",
+    "Observations.md",
+    "Weekly/Week 6.md",
+    "Weekly/Week 3.md",
+    "Weekly/Week 2.md",
+    "Weekly/Week 1.md",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PolicyLoss.png",
+    "Cumulativ.md",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/CumulativeReward.png",
     "Cumulative.md",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03",
     "Observations/Realistic Environment",
-    "Observations.md",
     "Observations",
-    "Weekly/Week 5.md",
     "Weekly/Week 4.md",
-    "Weekly/Week 3.md",
-    "Weekly/Week 2.md",
-    "Weekly/Week 1.md",
     "Weekly",
     "Welcome.md",
     "create a link.md"

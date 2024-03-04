@@ -115,3 +115,14 @@ Migrating project diary to Obsidian Vault (LaTeX).
 
 #### Obstacles met:
 - Spawning issue can be solved in two ways - either by creating an algorithm or by placing spawning area object (less flexible but easier and more predictable).
+
+# Sunday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Fixed the spawning - created an algorithm that runs only on the start of the training.
+- Run the training in the new terrain-environment and the simple environment.
+- Took observations of the first run as the reward system was too faulty to observe further.
+#### To accomplish today:
+
+#### Obstacles met:
+- Training time in the "realistic" environment is quite long and visible observations are almost impossible.
