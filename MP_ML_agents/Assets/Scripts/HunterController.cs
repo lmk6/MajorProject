@@ -11,6 +11,7 @@ public class HunterController : Agent
     [SerializeField] private GameObject raySensor;
 
     private Rigidbody rb;
+    private RayPerceptionSensorComponent3D _raySensor;
 
     private float _ultimateReward = 50f;
     private float _smallReward = 0.3f;
@@ -32,6 +33,7 @@ public class HunterController : Agent
     {
         var spawnController = FindObjectOfType<SpawnController>();
         transform.localPosition = spawnController.GetSpawnPoint();
+        _raySensor = raySensor.GetComponent<RayPerceptionSensorComponent3D>();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -83,6 +85,7 @@ public class HunterController : Agent
     {
         ApplyFallPenalty();
         ApplyDistancePenalty();
+        CheckRayView();
     }
 
     private void ApplyDistancePenalty()
@@ -96,6 +99,28 @@ public class HunterController : Agent
         AddReward(_fullPenalty * 2);
         classObject.EndEpisode();
         EndEpisode();
+    }
+    
+    private void CheckRayView()
+    {
+        if (_raySensor == null) return;
+        
+        var rayOutputs = RayPerceptionSensor.Perceive(_raySensor.GetRayPerceptionInput())
+            .RayOutputs;
+
+        var targetSpotted = false;
+
+        foreach (var rayOutput in rayOutputs)
+        {
+            GameObject hit = rayOutput.HitGameObject;
+            if (hit == null || !hit.CompareTag(target.tag)) continue;
+            // Check if the hit GameObject has the desired tag
+            AddReward(_smallReward);
+            targetSpotted = true;
+        }
+
+        if (targetSpotted) return;
+        AddReward(_smallPenalty);
     }
 
 

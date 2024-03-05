@@ -2,13 +2,14 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PreyController : Agent
 {
     [SerializeField] private HunterController classObject;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private Transform terrain;
-    [SerializeField] private GameObject raySensor;
+    [SerializeField] private GameObject raySensorObj;
 
     [SerializeField] private int timeForEpisode;
     private float _timeLeft;
@@ -83,13 +84,13 @@ public class PreyController : Agent
 
     private void AdjustRaySensorAngle(float angleChoice)
     {
-        if (raySensor == null || angleChoice == 0) return;
+        if (raySensorObj == null || angleChoice == 0) return;
         _rayAngle = angleChoice > 0
             ? Mathf.Min(_rayAngle + _angleStep, _maxAngle)
             : Mathf.Max(_rayAngle - _angleStep, -_maxAngle);
 
-        var currentRotation = raySensor.transform.localRotation.eulerAngles;
-        raySensor.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
+        var currentRotation = raySensorObj.transform.localRotation.eulerAngles;
+        raySensorObj.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
     }
 
     private void Update()
