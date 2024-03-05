@@ -6,12 +6,13 @@ using UnityEngine.Serialization;
 
 public class PreyController : Agent
 {
+    [SerializeField] private Transform enemyAgent;
     [SerializeField] private HunterController classObject;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private Transform terrain;
     [SerializeField] private GameObject raySensorObj;
-
     [SerializeField] private int timeForEpisode;
+    
     private float _timeLeft;
 
     private Color _defaultColor;
@@ -28,6 +29,9 @@ public class PreyController : Agent
     private float _angleStep = 5f;
 
     private Rigidbody rb;
+    private RayPerceptionSensorComponent3D _raySensor;
+
+    private bool _enemyAgentSpotted;
 
     public override void Initialize()
     {
@@ -53,6 +57,7 @@ public class PreyController : Agent
         sensor.AddObservation(transform.localPosition);
         // sensor.AddObservation(target.localPosition);
         sensor.AddObservation(_rayAngle);
+        sensor.AddObservation(_enemyAgentSpotted);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -102,11 +107,31 @@ public class PreyController : Agent
     {
         ApplyFallPenalty();
         ApplyDistancePenalty();
+        CheckRayView();
+    }
+    
+    private void CheckRayView()
+    {
+        if (_raySensor == null) return;
+        
+        var rayOutputs = RayPerceptionSensor.Perceive(_raySensor.GetRayPerceptionInput())
+            .RayOutputs;
+
+        foreach (var rayOutput in rayOutputs)
+        {
+            GameObject hit = rayOutput.HitGameObject;
+            if (hit == null || !hit.CompareTag(enemyAgent.tag)) continue;
+            _enemyAgentSpotted = true;
+            break;
+        }
+
+        if (_enemyAgentSpotted) return;
+        _enemyAgentSpotted = false;
     }
 
     private void ApplyDistancePenalty()
     {
-        AddReward(_smallReward);
+        // AddReward(_smallReward);
     }
 
     private void ApplyFallPenalty()

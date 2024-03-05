@@ -14,7 +14,7 @@ It contains collidable trees and has an uneven terrain for better simulation.
 
 ## Prey Reward System:
 - Every Action: +0.3
-- Falling of the map (y < 0): -100
+- Falling off the map (y < 0): -100
 - Collision with Hunter: -50
 
 ## Logic behind rewards

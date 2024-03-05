@@ -5,6 +5,8 @@ public class SpawnController : MonoBehaviour
 {
     [SerializeField] private float spawnEdgeDistance = 5f;
     [SerializeField] private float minimumDistanceBetweenAgents = 10f;
+    [SerializeField] private float maximumHeight = 3f;
+    [SerializeField] private Terrain terrain;
     [SerializeField] private Transform ground;
 
     private List<Vector3> _validSpawnArea;
@@ -18,10 +20,18 @@ public class SpawnController : MonoBehaviour
     private void Awake()
     {
         _validSpawnArea = new List<Vector3>();
+
         ComputeValidSpawnArea();
     }
 
     private void ComputeValidSpawnArea()
+    {
+        if (terrain is not null) ComputeValidSpawnAreaForTerrain();
+        else if (ground is not null) ComputeValidSpawnAreaForGround();
+        else Debug.LogError("No Area To Spawn in!!!");
+    }
+
+    private void ComputeValidSpawnAreaForGround()
     {
         // Vector3 terrainPosition = ground.transform.localPosition;
         // Vector3 terrainSize = ground.GetComponent<Renderer>().bounds.size;
@@ -29,7 +39,7 @@ public class SpawnController : MonoBehaviour
         // float maxX = terrainPosition.x + terrainSize.x - spawnEdgeDistance;
         // float minZ = terrainPosition.z + spawnEdgeDistance;
         // float maxZ = terrainPosition.z + terrainSize.z - spawnEdgeDistance;
-        
+
         Vector3 terrainSize = ground.GetComponent<Renderer>().bounds.size;
         float minX = -terrainSize.x / 2 + spawnEdgeDistance;
         float maxX = terrainSize.x / 2 - spawnEdgeDistance;
@@ -42,6 +52,32 @@ public class SpawnController : MonoBehaviour
             {
                 float y = _spawnHeightOffset;
                 _validSpawnArea.Add(new Vector3(x, y, z));
+            }
+        }
+    }
+
+    private void ComputeValidSpawnAreaForTerrain()
+    {
+        Vector3 terrainPosition = terrain.transform.localPosition;
+        Vector3 terrainSize = terrain.terrainData.size;
+        float minX = terrainPosition.x + spawnEdgeDistance;
+        float maxX = terrainPosition.x + terrainSize.x - spawnEdgeDistance;
+        float minZ = terrainPosition.z + spawnEdgeDistance;
+        float maxZ = terrainPosition.z + terrainSize.z - spawnEdgeDistance;
+
+        for (float x = minX; x < maxX; x++)
+        {
+            for (float z = minZ; z < maxZ; z++)
+            {
+                float y = terrain.SampleHeight(new Vector3(x, 0f, z));
+
+                // Check if the height is within the valid range
+                if (y <= maximumHeight)
+                {
+                    // Adjust y position to lift the agent above terrain
+                    y += _spawnHeightOffset;
+                    _validSpawnArea.Add(new Vector3(x, y, z));
+                }
             }
         }
     }

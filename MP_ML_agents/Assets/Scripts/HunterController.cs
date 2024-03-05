@@ -2,19 +2,20 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HunterController : Agent
 {
     [SerializeField] private Transform target;
     [SerializeField] private PreyController classObject;
     [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private GameObject raySensor;
+    [SerializeField] private GameObject raySensorObj;
 
     private Rigidbody rb;
     private RayPerceptionSensorComponent3D _raySensor;
 
     private float _ultimateReward = 50f;
-    private float _smallReward = 0.3f;
+    private float _smallReward = 0.5f;
     private float _fullPenalty = -50f;
     private float _smallPenalty = -0.5f;
     private float _stepPenalty = -0.05f;
@@ -22,6 +23,8 @@ public class HunterController : Agent
     private float _rayAngle;
     private float _maxAngle = 45f;
     private float _angleStep = 5f;
+
+    private bool _enemyAgentSpotted;
 
     public override void Initialize()
     {
@@ -33,7 +36,7 @@ public class HunterController : Agent
     {
         var spawnController = FindObjectOfType<SpawnController>();
         transform.localPosition = spawnController.GetSpawnPoint();
-        _raySensor = raySensor.GetComponent<RayPerceptionSensorComponent3D>();
+        _raySensor = raySensorObj.GetComponent<RayPerceptionSensorComponent3D>();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -41,6 +44,7 @@ public class HunterController : Agent
         sensor.AddObservation(transform.localPosition);
         // sensor.AddObservation(target.localPosition);
         sensor.AddObservation(_rayAngle);
+        sensor.AddObservation(_enemyAgentSpotted);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -72,13 +76,13 @@ public class HunterController : Agent
 
     private void AdjustRaySensorAngle(float angleChoice)
     {
-        if (raySensor == null || angleChoice == 0) return; 
+        if (raySensorObj == null || angleChoice == 0) return; 
         _rayAngle = angleChoice > 0 ? 
             Mathf.Min(_rayAngle + _angleStep, _maxAngle) : 
             Mathf.Max(_rayAngle - _angleStep, -_maxAngle);
 
-        var currentRotation = raySensor.transform.localRotation.eulerAngles;
-        raySensor.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
+        var currentRotation = raySensorObj.transform.localRotation.eulerAngles;
+        raySensorObj.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
     }
 
     private void ApplyPenalties()
@@ -101,6 +105,9 @@ public class HunterController : Agent
         EndEpisode();
     }
     
+    /**
+     * Reward for spotting the target
+     */
     private void CheckRayView()
     {
         if (_raySensor == null) return;
@@ -108,19 +115,18 @@ public class HunterController : Agent
         var rayOutputs = RayPerceptionSensor.Perceive(_raySensor.GetRayPerceptionInput())
             .RayOutputs;
 
-        var targetSpotted = false;
-
         foreach (var rayOutput in rayOutputs)
         {
             GameObject hit = rayOutput.HitGameObject;
             if (hit == null || !hit.CompareTag(target.tag)) continue;
-            // Check if the hit GameObject has the desired tag
             AddReward(_smallReward);
-            targetSpotted = true;
+            _enemyAgentSpotted = true;
+            break;
         }
 
-        if (targetSpotted) return;
-        AddReward(_smallPenalty);
+        if (_enemyAgentSpotted) return;
+        _enemyAgentSpotted = false;
+        // AddReward(_smallPenalty);
     }
 
 
