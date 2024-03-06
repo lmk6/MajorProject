@@ -13,12 +13,15 @@ public class HunterController : Agent
 
     private Rigidbody rb;
     private RayPerceptionSensorComponent3D _raySensor;
+    private Vector3 _distanceCheckpoint;
 
     private float _ultimateReward = 50f;
     private float _smallReward = 0.5f;
     private float _fullPenalty = -50f;
     private float _smallPenalty = -0.5f;
     private float _stepPenalty = -0.05f;
+
+    private float _distanceConsideredMovement = 1f;
 
     private float _rayAngle;
     private float _maxAngle = 45f;
@@ -28,7 +31,6 @@ public class HunterController : Agent
 
     public override void Initialize()
     {
-
         rb = GetComponent<Rigidbody>();
     }
 
@@ -36,6 +38,7 @@ public class HunterController : Agent
     {
         var spawnController = FindObjectOfType<SpawnController>();
         transform.localPosition = spawnController.GetSpawnPoint();
+        _distanceCheckpoint = transform.localPosition;
         _raySensor = raySensorObj.GetComponent<RayPerceptionSensorComponent3D>();
     }
 
@@ -61,7 +64,7 @@ public class HunterController : Agent
         transform.Rotate(0f, moveRotate * moveSpeed, 0f, Space.Self);
 
         AdjustRaySensorAngle(angleChoice);
-            
+
         ApplyPenalties();
     }
 
@@ -76,10 +79,10 @@ public class HunterController : Agent
 
     private void AdjustRaySensorAngle(float angleChoice)
     {
-        if (raySensorObj == null || angleChoice == 0) return; 
-        _rayAngle = angleChoice > 0 ? 
-            Mathf.Min(_rayAngle + _angleStep, _maxAngle) : 
-            Mathf.Max(_rayAngle - _angleStep, -_maxAngle);
+        if (raySensorObj == null || angleChoice == 0) return;
+        _rayAngle = angleChoice > 0
+            ? Mathf.Min(_rayAngle + _angleStep, _maxAngle)
+            : Mathf.Max(_rayAngle - _angleStep, -_maxAngle);
 
         var currentRotation = raySensorObj.transform.localRotation.eulerAngles;
         raySensorObj.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
@@ -94,7 +97,8 @@ public class HunterController : Agent
 
     private void ApplyDistancePenalty()
     {
-        AddReward(_stepPenalty);
+        if (!AgentMovedMoreThan(_distanceConsideredMovement))
+            AddReward(_smallPenalty);
     }
 
     private void ApplyFallPenalty()
@@ -104,14 +108,14 @@ public class HunterController : Agent
         classObject.EndEpisode();
         EndEpisode();
     }
-    
+
     /**
      * Reward for spotting the target
      */
     private void CheckRayView()
     {
         if (_raySensor == null) return;
-        
+
         var rayOutputs = RayPerceptionSensor.Perceive(_raySensor.GetRayPerceptionInput())
             .RayOutputs;
 
@@ -129,6 +133,13 @@ public class HunterController : Agent
         // AddReward(_smallPenalty);
     }
 
+    private bool AgentMovedMoreThan(float distanceInMeters)
+    {
+        var distanceToCheckpoint = transform.position - _distanceCheckpoint;
+        if (!(distanceToCheckpoint.magnitude > distanceInMeters)) return false;
+        _distanceCheckpoint = transform.position;
+        return true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -136,7 +147,7 @@ public class HunterController : Agent
         {
             AddReward(_ultimateReward);
             classObject.AddReward(_fullPenalty);
-            ChangeGroundColor(Color.green);
+            classObject.ChangeGroundColor(Color.green);
             EndEpisode();
             classObject.EndEpisode();
         }
@@ -144,14 +155,9 @@ public class HunterController : Agent
         if (other.gameObject.CompareTag("Wall"))
         {
             AddReward(_fullPenalty);
-            ChangeGroundColor(Color.red);
+            classObject.ChangeGroundColor(Color.red);
             EndEpisode();
             classObject.EndEpisode();
         }
-    }
-
-    private void ChangeGroundColor(Color color)
-    {
-        // terrain.GetComponent<Renderer>().material.color = color;
     }
 }

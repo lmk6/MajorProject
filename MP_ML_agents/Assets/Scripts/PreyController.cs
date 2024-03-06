@@ -153,7 +153,7 @@ public class PreyController : Agent
         }
     }
 
-    private void ChangeGroundColor(Color color)
+    public void ChangeGroundColor(Color color)
     {
         terrain.GetComponent<Renderer>().material.color = color;
     }
