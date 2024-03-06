@@ -45,12 +45,12 @@ On the plot above, we can clearly see that Hunter does not do anything to improv
 Prey on the other hand, is rewarded way too much, resulting in not even trying to change its behaviour. It ends up with a huge reward of +911.
 ### Policy Loss Plot:
 ![Policy Loss](PolicyLoss.png)
-*Policy Loss shows how much the process for choosing actions (policy) is changing.* [Documentation Reference](https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses%2FPolicy%20Loss%20(PPO%3B,of%20the%20value%20function%20update.)
+*Policy Loss shows how much the process for choosing actions (policy) is changing. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses%2FPolicy%20Loss%20(PPO%3B,of%20the%20value%20function%20update.>)*
 
 The policy loss for both agents is almost the same, standing at 0.023. On this plot, we can see that policy loss has very little variation, approx. between 0.021 and 0.025. The policy loss should be generally less than 1 which means that the loss for this training is very small, resulting in no almost no change in the behaviour for both agents. It actually interesting to see that the Hunter agent, at the end, gives up completely and tries to minimise the penalty it gets.
 ### Value Loss Plot:
 ![Policy Loss](ValueLoss.png)
-*How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised.* [Documentation Reference](https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.)
+*How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)*
 
 Prey Agent seems to have no idea what it gets the reward for and Hunter seems to stabilise itself from early on due to constantly failing making any improvement.
 ## Final Observations:

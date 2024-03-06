@@ -46,16 +46,17 @@ Given that Prey Agent receives a reward for basically surviving long enough, it 
 Hunter Agent finally shows some kind of progress here, however, it is very unimpressive how long it takes to increase the reward gain. I suspect the reward might be too low for looking at the Prey Agent.
 ### Policy Loss Plot:
 ![Policy Loss](PolicyLoss.png)
-*Policy Loss shows how much the process for choosing actions (policy) is changing. [Documentation Reference](https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses%2FPolicy%20Loss%20(PPO%3B,of%20the%20value%20function%20update.)*
+*Policy Loss shows how much the process for choosing actions (policy) is changing. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses%2FPolicy%20Loss%20(PPO%3B,of%20the%20value%20function%20update.>)*
 
 The policy loss is quite interesting here. Hunter Agents seems to give up on experimenting closer to the end and Prey Agent is supposedly trying new actions a bit more frequently. It is still worth noting that the policy loss (change in behaviour) here is small in general, only between ~0.021 and ~0.027, where 1 is the maximum.
 ### Value Loss Plot
 ![Value Loss](ValueLoss.png)
-*How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.)* 
+*How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 
 Prey Agent seems to slowly get better at predicting the value of each state. The opposite can be said about the Hunter Agent which, from around 250000th step, increases the value loss almost linearly.
 
 ## Final Observations:
 Change in the reward system is possibly too small, but it is still curious to me that the Hunter agent did not learn to at least keep the rays hitting the Prey agent.
+Perhaps an increase in the number of neurons is needed to help the agent "connect the dots".
 Prey Agent does not need to take any action if Hunter failed to realise it needs to catch it so there is not much to be said here. 
 Unless the reward system will push the Hunter towards the Prey, there will be very little change in their behaviour.
