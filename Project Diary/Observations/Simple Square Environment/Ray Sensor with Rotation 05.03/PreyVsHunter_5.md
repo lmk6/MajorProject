@@ -1,8 +1,8 @@
 ## Environment
 The environment is a 50x50 Unity3D Plane object surrounded by collidable walls.
 ## Neural Network:
-- 128 neurons per layer
-- 2 layers
+- 256 neurons per layer
+- 3 layers
 ## Observation Space (5):
 - Position (x, y, z)
 - Ray Sensor's angle
@@ -57,6 +57,5 @@ Prey Agent seems to slowly get better at predicting the value of each state. The
 
 ## Final Observations:
 Change in the reward system is possibly too small, but it is still curious to me that the Hunter agent did not learn to at least keep the rays hitting the Prey agent.
-Perhaps an increase in the number of neurons is needed to help the agent "connect the dots".
 Prey Agent does not need to take any action if Hunter failed to realise it needs to catch it so there is not much to be said here. 
 Unless the reward system will push the Hunter towards the Prey, there will be very little change in their behaviour.
