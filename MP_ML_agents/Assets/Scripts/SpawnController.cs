@@ -6,8 +6,8 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private float spawnEdgeDistance = 5f;
     [SerializeField] private float minimumDistanceBetweenAgents = 10f;
     [SerializeField] private float maximumHeight = 3f;
-    [SerializeField] private Terrain terrain;
-    [SerializeField] private Transform ground;
+    [SerializeField] private Terrain terrain = null;
+    [SerializeField] private Transform ground = null;
 
     private List<Vector3> _validSpawnArea;
     private readonly float _spawnHeightOffset = 0.3f;
@@ -26,20 +26,13 @@ public class SpawnController : MonoBehaviour
 
     private void ComputeValidSpawnArea()
     {
-        if (terrain is not null) ComputeValidSpawnAreaForTerrain();
-        else if (ground is not null) ComputeValidSpawnAreaForGround();
+        if (terrain != null) ComputeValidSpawnAreaForTerrain();
+        else if (ground != null) ComputeValidSpawnAreaForGround();
         else Debug.LogError("No Area To Spawn in!!!");
     }
 
     private void ComputeValidSpawnAreaForGround()
     {
-        // Vector3 terrainPosition = ground.transform.localPosition;
-        // Vector3 terrainSize = ground.GetComponent<Renderer>().bounds.size;
-        // float minX = terrainPosition.x + spawnEdgeDistance;
-        // float maxX = terrainPosition.x + terrainSize.x - spawnEdgeDistance;
-        // float minZ = terrainPosition.z + spawnEdgeDistance;
-        // float maxZ = terrainPosition.z + terrainSize.z - spawnEdgeDistance;
-
         Vector3 terrainSize = ground.GetComponent<Renderer>().bounds.size;
         float minX = -terrainSize.x / 2 + spawnEdgeDistance;
         float maxX = terrainSize.x / 2 - spawnEdgeDistance;

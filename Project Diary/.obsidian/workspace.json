@@ -4,47 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "a9177a6a0e4c481c",
+        "id": "6e8c5a2085ecca83",
         "type": "tabs",
         "children": [
           {
-            "id": "4e6e3c8359ee2453",
+            "id": "473a328083489e69",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Weekly/Week 5.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "63e98aa5b8a134c5",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
-        "id": "a9f2a1635112a535",
+        "id": "4dc2a82818a1a3ce",
         "type": "tabs",
         "children": [
           {
-            "id": "42e852f74167e288",
+            "id": "4e2d76f7b61213e9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Research Questions.md",
+                "file": "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PreyVsHunter_3.md",
                 "mode": "source",
                 "source": false
               }
@@ -116,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Research Questions.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Research Questions.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -156,7 +143,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Research Questions.md"
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md"
               }
             }
           }
@@ -177,24 +164,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "42e852f74167e288",
+  "active": "473a328083489e69",
   "lastOpenFiles": [
-    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/RE + Ray Sensor with Rotation (PreyVsHunter_3).md",
-    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PolicyLoss.png",
-    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/CumulativeReward.png",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PreyVsHunter_3.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
     "Weekly/Week 6.md",
-    "Research Questions.md",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/CumulativeReward.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/ValueLoss.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/CumulativeReward.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PolicyLoss.png",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/ValueLoss.png",
     "Weekly/Week 5.md",
-    "Observations.md",
     "Weekly/Week 3.md",
+    "Weekly/Week 4.md",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PolicyLoss.png",
+    "Research Questions.md",
+    "Observations/Simple Square Environment/Untitled.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03",
+    "Observations/Simple Square Environment",
+    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03",
+    "Observations/Realistic Environment/Ray Sensor",
+    "Observations/Realistic Environment/Untitled.md",
+    "Observations.md",
     "Weekly/Week 2.md",
     "Weekly/Week 1.md",
     "Cumulativ.md",
     "Cumulative.md",
-    "Observations/Realistic Environment/Ray Sensor with Rotation 02.03",
     "Observations/Realistic Environment",
     "Observations",
-    "Weekly/Week 4.md",
     "Weekly",
     "Welcome.md",
     "create a link.md"

@@ -24,5 +24,17 @@
 - Make observations.
 #### Obstacles met:
 - Further automation of run script can be time consuming. 
-- Unsure whether the data captured by
 
+# Wednesday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Cleaned up the code a bit and fixed few issues.
+- Run the training in the simple environment and taken observation.
+- Begun with documenting my observation.
+#### To accomplish today:
+- Complete documenting the observation.
+- Consider more plots / observation to be documented in the observations section.
+- Run the training in the realistic environment if successful.
+## Obstacles met:
+- Little change ("Curiosity") in agents' behaviour, cannot progress with achieving any form of strategy in their behaviour.
+- There may be more to training parameters than I initially though, need to have a further reading at some point but may end up being a waste of precious time - just a week until mid project demo.
