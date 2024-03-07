@@ -38,3 +38,16 @@
 ## Obstacles met:
 - Little change ("Curiosity") in agents' behaviour, cannot progress with achieving any form of strategy in their behaviour.
 - There may be more to training parameters than I initially though, need to have a further reading at some point but may end up being a waste of precious time - just a week until mid project demo.
+
+# Thursday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Trained another model with changed rewards.
+- Documented my observations for two trained models.
+- Included "Loss Value" plot for my observations.
+#### To accomplish today:
+- Run a training with more *aggressive* reward system
+- create a mid-project demo presentation.
+## Obstacles met:
+- Control over ray angle seems to be too complicated for the agents.
+- Training may need to be longer to achieve good results.

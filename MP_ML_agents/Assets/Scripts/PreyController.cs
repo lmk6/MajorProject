@@ -146,7 +146,7 @@ public class PreyController : Agent
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            AddReward(_fullPenalty);
+            AddReward(_fullPenalty * 2);
             ChangeGroundColor(Color.red);
             EndEpisode();
             classObject.EndEpisode();

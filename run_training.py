@@ -4,9 +4,11 @@ import re
 
 DEFAULT_PATH_TO_RESULTS = r"C:\MajorProject\results"
 DEFAULT_PATH_TO_CONFIG = r"C:\MajorProject\MP_ML_agents\Assets\TrainConfigMAgents.yaml"
+DEFAULT_LOG_FILENAME = "training_log.txt"
 
 def run_new_training(path_to_config=DEFAULT_PATH_TO_CONFIG):
     new_run_id = get_new_run_id()
+    captured_output = ""
     print(f"Running ML-Agents ==== run-id = {new_run_id}")
     process = subprocess.Popen(["mlagents-learn", path_to_config, f"--run-id={new_run_id}"],
                                stdout=subprocess.PIPE,
@@ -15,8 +17,13 @@ def run_new_training(path_to_config=DEFAULT_PATH_TO_CONFIG):
                                shell=True)
     
     while process.poll() is None:
-        output = process.stdout.readline().strip()
+        output = process.stdout.readline()
+        captured_output += output
+        output = output.strip()
         print(output)
+
+    with open(f"{DEFAULT_PATH_TO_RESULTS}\{new_run_id}\{DEFAULT_LOG_FILENAME}") as file:
+        file.write(output)
 
 def get_new_run_id(): 
     lastest_run_id = get_latest_run_name()

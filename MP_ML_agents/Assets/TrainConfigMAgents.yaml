@@ -15,7 +15,7 @@ behaviors:
       epsilon_schedule: linear
     checkpoint_interval: 500000
     network_settings:
-      normalize: false
+      normalize: true
       hidden_units: 256
       num_layers: 3
       vis_encode_type: simple
@@ -60,7 +60,7 @@ behaviors:
       epsilon_schedule: linear
     checkpoint_interval: 500000
     network_settings:
-      normalize: false
+      normalize: true
       hidden_units: 256
       num_layers: 3
       vis_encode_type: simple

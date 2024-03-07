@@ -16,7 +16,7 @@ public class HunterController : Agent
     private Vector3 _distanceCheckpoint;
 
     private float _ultimateReward = 50f;
-    private float _smallReward = 0.5f;
+    private float _smallReward = 0.55f;
     private float _fullPenalty = -50f;
     private float _smallPenalty = -0.5f;
     private float _stepPenalty = -0.05f;
@@ -130,7 +130,6 @@ public class HunterController : Agent
 
         if (_enemyAgentSpotted) return;
         _enemyAgentSpotted = false;
-        // AddReward(_smallPenalty);
     }
 
     private bool AgentMovedMoreThan(float distanceInMeters)
@@ -154,7 +153,7 @@ public class HunterController : Agent
 
         if (other.gameObject.CompareTag("Wall"))
         {
-            AddReward(_fullPenalty);
+            AddReward(_fullPenalty * 2);
             classObject.ChangeGroundColor(Color.red);
             EndEpisode();
             classObject.EndEpisode();
