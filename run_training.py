@@ -2,8 +2,9 @@ import os
 import subprocess
 import re
 
-DEFAULT_PATH_TO_RESULTS = r"C:\MajorProject\results"
-DEFAULT_PATH_TO_CONFIG = r"C:\MajorProject\MP_ML_agents\Assets\TrainConfigMAgents.yaml"
+PATH_TO_DIR = os.getcwd()
+DEFAULT_PATH_TO_RESULTS = PATH_TO_DIR + r"\MajorProject\results"
+DEFAULT_PATH_TO_CONFIG = PATH_TO_DIR + r"\MP_ML_agents\Assets\TrainConfigMAgents.yaml"
 DEFAULT_LOG_FILENAME = "training_log.txt"
 
 def run_new_training(path_to_config=DEFAULT_PATH_TO_CONFIG):
