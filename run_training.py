@@ -3,7 +3,7 @@ import subprocess
 import re
 
 PATH_TO_DIR = os.getcwd()
-DEFAULT_PATH_TO_RESULTS = PATH_TO_DIR + r"\MajorProject\results"
+DEFAULT_PATH_TO_RESULTS = PATH_TO_DIR + r"\results"
 DEFAULT_PATH_TO_CONFIG = PATH_TO_DIR + r"\MP_ML_agents\Assets\TrainConfigMAgents.yaml"
 DEFAULT_LOG_FILENAME = "training_log.txt"
 
