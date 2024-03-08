@@ -51,3 +51,15 @@
 ## Obstacles met:
 - Control over ray angle seems to be too complicated for the agents.
 - Training may need to be longer to achieve good results.
+
+# Friday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Trained a few models and did some experimenting, however, with little progress.
+- Begun documenting the observations for two similar models where one is run with normalisation of the observations.
+- Setup my laptop for running the training and showing the setup during demonstration.
+- Enhanced automation scripts.
+#### To accomplish today:
+- outline topics for mid-project demo
+#### Obstacles met:
+- Little progress with ray angle changing, might consider dropping the idea.

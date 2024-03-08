@@ -23,8 +23,8 @@ def run_new_training(path_to_config=DEFAULT_PATH_TO_CONFIG):
         output = output.strip()
         print(output)
 
-    with open(f"{DEFAULT_PATH_TO_RESULTS}\{new_run_id}\{DEFAULT_LOG_FILENAME}") as file:
-        file.write(output)
+    with open(f"{DEFAULT_PATH_TO_RESULTS}\{new_run_id}\{DEFAULT_LOG_FILENAME}", "x") as file:
+        file.write(captured_output)
 
 def get_new_run_id(): 
     lastest_run_id = get_latest_run_name()

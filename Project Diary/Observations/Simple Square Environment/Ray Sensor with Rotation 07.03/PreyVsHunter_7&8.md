@@ -40,18 +40,19 @@ Normalisation slightly improved the training time.
 **Prey** displays the exact same behaviour as before.
 ### Cumulative Reward Plot:
 ![Cumulative Reward](CumulativeReward.png)
-*Pink represents Prey and Cyan represents Hunter*
+*Non-normalised: Pink represents Hunter and Orange represents Prey
+Normalised: Green represents Hunter and Purple represents Prey*
+Normalised Hunter agent seems to learn at a faster rate, achieving a substantially higher reward at at the end of training.
 ### Policy Loss Plot:
 ![Policy Loss](PolicyLoss.png)
 *Policy Loss shows how much the process for choosing actions (policy) is changing. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses%2FPolicy%20Loss%20(PPO%3B,of%20the%20value%20function%20update.>)*
 
-Both agents seem to have a fairly similar policy loss. The values are still low, between ~0.021 and ~0.027, where 1 is the maximum.
+Policy Loss seems to be the same for both configurations.
 ### Value Loss Plot
 ![Value Loss](ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 
-Prey Agent is very good at predicting what reward each state will result in. Hunter Agent is bad at predicting the rewards, which is visible during the run of the trained model. Maybe it requires more observations to make some logic of it.
+Normalised agents end up with a better (lower) value loss.
 
 ## Final Observations:
-Penalising staying within the same area for too long causes the Hunter Agent to be more active, and it is more successful. However, it seems like the agent requires more time (episodes) to be trained properly as the cumulative reward kept raising, though, not as much towards the end which could prognose a failed model. Hunter does not seem to remember where it spotted walls and once the walls are not hit by the agent's rays, it just falls into one.
-Prey Agent does exactly what is expected given the above. Despite moving within close proximity to itself, Hunter rarely seem to approach Prey letting it win, so no strategy change is required.
+Although the change in reward did a little to the overall result, the normalisation of the observed values seems to be a viable option in the future training, providing a better stability and learning at increased pace.
