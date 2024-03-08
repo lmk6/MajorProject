@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Weekly/Week 6.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PreyVsHunter_7&8.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Weekly/Week 6.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PreyVsHunter_7&8.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Weekly/Week 6.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PreyVsHunter_7&8.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Weekly/Week 6.md"
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PreyVsHunter_7&8.md"
               }
             }
           }
@@ -148,12 +148,17 @@
   },
   "active": "5c2632554e644254",
   "lastOpenFiles": [
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/ValueLoss.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/WeeklyLoss.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PolicyLoss.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/CumulativeReward.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 06.03/PreyVsHunter_6.md",
-    "Observations/Simple Square Environment/Ray Sensor",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PreyVsHunter_7&8.md",
+    "Weekly/Week 6.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 06.03/CumulativeReward.png",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PreyVsHunter_3.md",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PolicyLoss.png",
-    "Weekly/Week 6.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 06.03/PolicyLoss.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 06.03/ValueLoss.png",
@@ -163,8 +168,6 @@
     "Weekly/Week 5.md",
     "Weekly/Week 4.md",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/CumulativeReward.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/ValueLoss.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/CumulativeReward.png",
     "Weekly/Week 3.md",
     "Research Questions.md",
     "Observations/Simple Square Environment/Untitled.md",
