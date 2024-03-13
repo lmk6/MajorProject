@@ -1,4 +1,3 @@
-
 ## Environment
 The environment is a 100x100 Unity3D Terrain object modelled by myself.
 It contains collidable trees and has an uneven terrain for better simulation.

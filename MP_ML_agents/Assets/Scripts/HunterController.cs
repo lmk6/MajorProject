@@ -11,7 +11,7 @@ public class HunterController : Agent
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private GameObject raySensorObj;
 
-    private Rigidbody rb;
+    private Rigidbody _rigidbody;
     private RayPerceptionSensorComponent3D _raySensor;
     private Vector3 _distanceCheckpoint;
 
@@ -22,6 +22,7 @@ public class HunterController : Agent
     private float _stepPenalty = -0.05f;
 
     private float _distanceConsideredMovement = 1f;
+    private float _distanceToTarget;
 
     private float _rayAngle;
     private float _maxAngle = 45f;
@@ -31,7 +32,7 @@ public class HunterController : Agent
 
     public override void Initialize()
     {
-        rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     public override void OnEpisodeBegin()
@@ -45,9 +46,9 @@ public class HunterController : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.localPosition);
-        // sensor.AddObservation(target.localPosition);
         sensor.AddObservation(_rayAngle);
         sensor.AddObservation(_enemyAgentSpotted);
+        sensor.AddObservation(_distanceToTarget);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -60,7 +61,7 @@ public class HunterController : Agent
         // velocity = velocity.normalized * Time.deltaTime * moveSpeed;
         // transform.localPosition += velocity;
 
-        rb.MovePosition(transform.position + transform.forward * moveForward * moveSpeed * Time.deltaTime);
+        _rigidbody.MovePosition(transform.position + transform.forward * moveForward * moveSpeed * Time.deltaTime);
         transform.Rotate(0f, moveRotate * moveSpeed, 0f, Space.Self);
 
         AdjustRaySensorAngle(angleChoice);
@@ -124,6 +125,10 @@ public class HunterController : Agent
             GameObject hit = rayOutput.HitGameObject;
             if (hit == null || !hit.CompareTag(target.tag)) continue;
             AddReward(_smallReward);
+            var distance = Vector3.Distance(transform.localPosition, hit.transform.localPosition);
+            if (distance < _distanceToTarget)
+                AddReward(_smallReward);
+            _distanceToTarget = distance;
             _enemyAgentSpotted = true;
             break;
         }
