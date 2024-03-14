@@ -36,7 +36,7 @@ namespace ScriptsForTerrain
 
         public override void OnEpisodeBegin()
         {
-            var spawnController = FindObjectOfType<SpawnControllerTerrain>();
+            var spawnController = FindObjectOfType<SpawnController>();
             transform.localPosition = spawnController.GetSpawnPoint();
         }
 

@@ -47,7 +47,7 @@ namespace ScriptsForTerrain
             // }
             //
             // transform.localPosition = (Vector3) newPosition;
-            var spawnController = FindObjectOfType<SpawnControllerTerrain>();
+            var spawnController = FindObjectOfType<SpawnController>();
             transform.localPosition = spawnController.GetSpawnPoint();
         }
 
