@@ -17,3 +17,14 @@
 - Experiment with the length of training
 #### Obstacles met:
 - Model still fails to achieve its basic goal at all.
+# Wednesday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Trained 5 new models, mostly experimenting. Did not achieve the expected result but there is some progress.
+- Started writing a report on observations.
+#### To accomplish today:
+- Prepare some organisational slides for the presentation: explanation of the model inner workings, how the model actually trains, what usually are the inputs and the outputs (on the latest model).
+- Experiment with the length of training.
+#### Obstacles met:
+- Presentation still not done, one day left.
+- Agent learning with little progress.
