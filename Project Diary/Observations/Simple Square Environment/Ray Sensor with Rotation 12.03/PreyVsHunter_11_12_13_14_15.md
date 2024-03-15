@@ -7,8 +7,12 @@ The environment is a 50x50 Unity3D Plane object surrounded by collidable walls.
 - Position (x, y, z)
 - Ray Sensor's angle
 - Is target spotted (True or False)
+#### Stacked Observations:
+- PreyVsHunter_13: 3
+- PreyVsHunter_14: 10
+- Others: 1
 ### Additional Predator Observation (only for 13-and newer):
-- Distance to targe - only updated when target hit by ray
+- Distance to target - only updated when target hit by ray
 ## Continuous Actions:
 - Move forward and backwards
 - Rotate to left and right
@@ -25,35 +29,25 @@ The environment is a 50x50 Unity3D Plane object surrounded by collidable walls.
 - collision with wall: -100
 - Collision with Hunter: -50
 ## Rewards Rationale
-If Hunter starts receiving an additional reward for not only spotting the prey but also for knowing how close to it is, it may begin actually tracking it.
+If Hunter starts receiving an additional reward for not only spotting the prey but also for knowing it is getting closer to it, it will likely start approaching.
 ## Training Observations:
-
+In the #15 model, I could finally see the Hunter scanning the area around it successfully. Once the Prey is spotted, Hunter rushes towards it. If the Prey is not spotted though, Hunter will usually just walk into the wall.
+Other models display surprisingly little improvement, Hunter started getting more interested in spotting prey once the distance to it started being observed (#13-newer).
 ### Computational cost
-The training lasted about 12 minutes and 38 seconds for non-normalised observations and 12 minutes and 18 seconds for normalised observations.
-Normalisation slightly improved the training time.
-
+Models with the same number of training steps seemed to have a very similar training time.
+The extended (1 million steps) training for #12 model took about 17.5 minutes.
 ## Post Training Result:
-### Not normalised:
-**Hunter** agent remains chaotic in actions it takes, rarely approaches the Prey. I noticed a small improvement in spotting the Prey.
-**Prey** shows very small movement.
-### Normalised:
-**Hunter** agent is still acting chaotically but also a lot more dynamically, it moves around with a higher confidence but usually walks into the wall backwards.
-**Prey** displays the exact same behaviour as before.
+Model #15 seems to be the most successful one, Hunter agents keeps the ray sensor at a sensible level, pursuits the Prey when spotted in a close proximity. Hunter still runs into the walls for an unknown reason.
+**Prey** does not show much change in its' behaviour .
 ### Cumulative Reward Plot:
 ![Cumulative Reward](CumulativeReward.png)
-*Non-normalised: Pink represents Hunter and Orange represents Prey
-Normalised: Green represents Hunter and Purple represents Prey*
-Normalised Hunter agent seems to learn at a faster rate, achieving a substantially higher reward at at the end of training.
-### Policy Loss Plot:
-![Policy Loss](PolicyLoss.png)
-*Policy Loss shows how much the process for choosing actions (policy) is changing. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses%2FPolicy%20Loss%20(PPO%3B,of%20the%20value%20function%20update.>)*
-
-Policy Loss seems to be the same for both configurations.
+### Entropy Plot:
+![Policy Loss](Entropy.png)
 ### Value Loss Plot
 ![Value Loss](ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 
-Normalised agents end up with a better (lower) value loss.
+Models #11 and #12 have a smaller loss compared to models with an additional observation and stacked observations.
 
 ## Final Observations:
-Although the change in reward did a little to the overall result, the normalisation of the observed values seems to be a viable option in the future training, providing a better stability and learning at increased pace.
+Stacked observations and increased number of steps is not really helping in training the model. The additional observation was, however, a step in a right direction as the behaviour of the Hunter Agent improved.

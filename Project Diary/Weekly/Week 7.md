@@ -28,3 +28,9 @@
 #### Obstacles met:
 - Presentation still not done, one day left.
 - Agent learning with little progress.
+# Thursday
+## Mid-Project Demo
+# Friday
+### Daily Scrum:
+#### To accomplish today:
+- Complete the observations on the latest models.
