@@ -1,3 +1,4 @@
+using System;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -10,10 +11,15 @@ public class HunterController : Agent
     [SerializeField] private PreyController classObject;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private GameObject raySensorObj;
+    [SerializeField] private int maximumOnHungerTime;
 
     private Rigidbody _rigidbody;
     private RayPerceptionSensorComponent3D _raySensor;
     private Vector3 _distanceCheckpoint;
+
+    private int _timeOnHunger;
+    private float _timePassed;
+    private float _interval = 1f;
 
     private float _ultimateReward = 50f;
     private float _smallReward = 0.55f;
@@ -41,6 +47,7 @@ public class HunterController : Agent
         transform.localPosition = spawnController.GetSpawnPoint();
         _distanceCheckpoint = transform.localPosition;
         _raySensor = raySensorObj.GetComponent<RayPerceptionSensorComponent3D>();
+        _timeOnHunger = 0;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -49,6 +56,7 @@ public class HunterController : Agent
         sensor.AddObservation(_rayAngle);
         sensor.AddObservation(_enemyAgentSpotted);
         sensor.AddObservation(_distanceToTarget);
+        sensor.AddObservation(_timeOnHunger);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -78,6 +86,18 @@ public class HunterController : Agent
         // continuousActions[1] = Input.GetKey(KeyCode.Space) ? 1.0f : 0.0f;;
     }
 
+    private void Update()
+    {
+        _timePassed += Time.deltaTime;
+        if (_timePassed >= _interval)
+        {
+            _timePassed = 0f;
+            _timeOnHunger++;
+            
+            CheckHungerLevel();
+        }
+    }
+
     private void AdjustRaySensorAngle(float angleChoice)
     {
         if (raySensorObj == null || angleChoice == 0) return;
@@ -92,7 +112,7 @@ public class HunterController : Agent
     private void ApplyPenalties()
     {
         ApplyFallPenalty();
-        ApplyDistancePenalty();
+        // ApplyDistancePenalty();
         CheckRayView();
     }
 
@@ -108,6 +128,17 @@ public class HunterController : Agent
         AddReward(_fullPenalty * 2);
         classObject.EndEpisode();
         EndEpisode();
+    }
+
+    private void CheckHungerLevel()
+    {
+        if (_timeOnHunger >= maximumOnHungerTime)
+        {
+            AddReward(_fullPenalty);
+            classObject.AddReward(_ultimateReward);
+            EndEpisode();
+            classObject.EndEpisode();
+        }
     }
 
     /**

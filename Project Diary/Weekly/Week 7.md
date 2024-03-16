@@ -34,3 +34,13 @@
 ### Daily Scrum:
 #### To accomplish today:
 - Complete the observations on the latest models.
+# Saturday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Observations completed.
+#### To accomplish today:
+- Run model with changed more changed hyper parameters.
+- Research on automating the training runs.
+#### Obstacles met:
+- There is a lot of parameters and options to still explore for training.
+- Very small progress with Prey Agent.

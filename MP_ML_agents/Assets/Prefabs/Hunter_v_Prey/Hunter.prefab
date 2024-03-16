@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 6
-    NumStackedVectorObservations: 10
+    VectorObservationSize: 7
+    NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 3
       BranchSizes: 
@@ -301,6 +301,7 @@ MonoBehaviour:
   classObject: {fileID: 0}
   moveSpeed: 10
   raySensorObj: {fileID: 0}
+  maximumOnHungerTime: 30
 --- !u!114 &1823299695269137280
 MonoBehaviour:
   m_ObjectHideFlags: 0

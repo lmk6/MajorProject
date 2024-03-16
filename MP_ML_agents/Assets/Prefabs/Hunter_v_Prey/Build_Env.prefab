@@ -604,6 +604,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3773485644444248716}
     m_Modifications:
+    - target: {fileID: 5086422161949617565, guid: c6f715555999236418d16788962e9df2, type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6332855331653828832, guid: c6f715555999236418d16788962e9df2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20

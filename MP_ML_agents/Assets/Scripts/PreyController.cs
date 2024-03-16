@@ -11,9 +11,6 @@ public class PreyController : Agent
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private Transform terrain;
     [SerializeField] private GameObject raySensorObj;
-    [SerializeField] private int timeForEpisode;
-    
-    private float _timeLeft;
 
     private Color _defaultColor;
 
@@ -40,7 +37,6 @@ public class PreyController : Agent
 
     public override void OnEpisodeBegin()
     {
-        EpisodeTimerNew();
         // var newPosition = GetStartingPosition();
         // while (newPosition is null)
         // {
@@ -98,11 +94,6 @@ public class PreyController : Agent
         raySensorObj.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
     }
 
-    private void Update()
-    {
-        CheckRemainingTime();
-    }
-
     private void ApplyPenalties()
     {
         ApplyFallPenalty();
@@ -156,21 +147,5 @@ public class PreyController : Agent
     public void ChangeGroundColor(Color color)
     {
         terrain.GetComponent<Renderer>().material.color = color;
-    }
-
-    private void EpisodeTimerNew()
-    {
-        _timeLeft = Time.time + timeForEpisode;
-    }
-
-    private void CheckRemainingTime()
-    {
-        if (Time.time >= _timeLeft)
-        {
-            AddReward(_ultimateReward);
-            classObject.AddReward(_fullPenalty);
-            EndEpisode();
-            classObject.EndEpisode();
-        }
     }
 }

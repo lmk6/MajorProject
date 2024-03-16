@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/PreyVsHunter_11_12_13_14_15.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/PreyVsHunter_16_17.md",
                 "mode": "source",
                 "source": false
               }
@@ -97,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/PreyVsHunter_11_12_13_14_15.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/PreyVsHunter_16_17.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/PreyVsHunter_11_12_13_14_15.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/PreyVsHunter_16_17.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/PreyVsHunter_11_12_13_14_15.md"
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/PreyVsHunter_16_17.md"
               }
             }
           }
@@ -160,14 +160,19 @@
   },
   "active": "5c2632554e644254",
   "lastOpenFiles": [
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/Entropy.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/ValueLoss.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/CumulativeReward.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/PreyVsHunter_11_12_13_14_15.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/PreyVsHunter_16_17.md",
+    "Weekly/Week 7.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/Entropy.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/ValueLoss.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/CumulativeReward.png",
-    "Weekly/Week 7.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/CumulativeReward.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 06.03/CumulativeReward.png",
     "Weekly/Week 6.md",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 12.03/PreyVsHunter_11_12_13_14_15.md",
     "Research Questions.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PreyVsHunter_7&8.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/PolicyLoss.png",
@@ -180,9 +185,6 @@
     "Weekly/Week 1.md",
     "Untitled",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/CumulativeReward.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/ValueLoss.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/ValueLoss.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03/WeeklyLoss.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 07.03",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 06.03",
@@ -198,7 +200,6 @@
     "Cumulativ.md",
     "Cumulative.md",
     "Observations/Realistic Environment",
-    "Observations",
     "Welcome.md",
     "create a link.md"
   ]
