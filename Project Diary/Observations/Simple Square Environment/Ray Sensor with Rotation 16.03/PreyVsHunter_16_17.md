@@ -20,7 +20,6 @@ The environment is a 50x50 Unity3D Plane object surrounded by collidable walls.
 - Rotate to left and right
 - Rotate Ray Sensor up and down
 ## Hunter Reward System:
-- Distance to the last farthest position below 1m:  -0.05
 - Target spotted: +0.055
 - Distance to Target reduced: +0.055
 - Falling off the map (y < 0): -100
@@ -39,13 +38,13 @@ Agents seem to behave the same as in the previous models.
 ## Post Training Result:
 The behaviour seems the same as before for model #17, model #16 seems to have not enough time to train.
 ### Cumulative Reward Plot:
-![Cumulative Reward](CumulativeReward.png)
+![Cumulative Reward](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2016.03/CumulativeReward.png)
 Clearly, there is little improvement in the cumulative reward for the models with changed hyperparameters. These models seem to train at a slower pace.
 ### Entropy Plot:
 ![Policy Loss](Entropy.png)
 Interestingly enough, model #17 seems to have an improved entropy compared to other models.
 ### Value Loss Plot
-![Value Loss](ValueLoss.png)
+![Value Loss](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2016.03/ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 Eventually, The results get similar.
 

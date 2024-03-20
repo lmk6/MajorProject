@@ -44,3 +44,13 @@
 #### Obstacles met:
 - There is a lot of parameters and options to still explore for training.
 - Very small progress with Prey Agent.
+# Sunday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Trained 2 models with changed hyperparameters.
+- Trained 1 model with new hunger mechanic in place of the timer.
+- Observations documented.
+#### To accomplish today:
+- Test better rewards.
+#### Obstacles met:
+- Developing Hunter takes time from developing prey.

@@ -22,18 +22,19 @@ public class HunterController : Agent
     private float _interval = 1f;
 
     private float _ultimateReward = 50f;
-    private float _smallReward = 0.55f;
+    private float _spottedPreyReward = 15f;
+    private float _gettingCloserReward = 0.05f;
     private float _fullPenalty = -50f;
-    private float _smallPenalty = -0.5f;
-    private float _stepPenalty = -0.05f;
+    private float _hungerIncreasedPenalty = -1f;
 
-    private float _distanceConsideredMovement = 1f;
-    private float _distanceToTarget;
+    private float _closestDistanceToTarget;
+    private float _lastObservedDistanceToTarget;
 
     private float _rayAngle;
     private float _maxAngle = 45f;
     private float _angleStep = 5f;
 
+    private bool _enemyAgentSpottedFirstTime;
     private bool _enemyAgentSpotted;
 
     public override void Initialize()
@@ -48,6 +49,10 @@ public class HunterController : Agent
         _distanceCheckpoint = transform.localPosition;
         _raySensor = raySensorObj.GetComponent<RayPerceptionSensorComponent3D>();
         _timeOnHunger = 0;
+        _enemyAgentSpotted = false;
+        _enemyAgentSpottedFirstTime = false;
+        _closestDistanceToTarget = 999f; // High value to be considered as 'unknown'
+        _lastObservedDistanceToTarget = _closestDistanceToTarget;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -55,7 +60,7 @@ public class HunterController : Agent
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(_rayAngle);
         sensor.AddObservation(_enemyAgentSpotted);
-        sensor.AddObservation(_distanceToTarget);
+        sensor.AddObservation(_lastObservedDistanceToTarget);
         sensor.AddObservation(_timeOnHunger);
     }
 
@@ -93,7 +98,7 @@ public class HunterController : Agent
         {
             _timePassed = 0f;
             _timeOnHunger++;
-            
+            AddReward(_hungerIncreasedPenalty);
             CheckHungerLevel();
         }
     }
@@ -114,12 +119,6 @@ public class HunterController : Agent
         ApplyFallPenalty();
         // ApplyDistancePenalty();
         CheckRayView();
-    }
-
-    private void ApplyDistancePenalty()
-    {
-        if (!AgentMovedMoreThan(_distanceConsideredMovement))
-            AddReward(_smallPenalty);
     }
 
     private void ApplyFallPenalty()
@@ -155,16 +154,20 @@ public class HunterController : Agent
         {
             GameObject hit = rayOutput.HitGameObject;
             if (hit == null || !hit.CompareTag(target.tag)) continue;
-            AddReward(_smallReward);
             var distance = Vector3.Distance(transform.localPosition, hit.transform.localPosition);
-            if (distance < _distanceToTarget)
-                AddReward(_smallReward);
-            _distanceToTarget = distance;
+            if (distance < _closestDistanceToTarget)
+            {
+                AddReward(_gettingCloserReward);
+                _closestDistanceToTarget = distance;
+            }
+            _lastObservedDistanceToTarget = distance;
             _enemyAgentSpotted = true;
-            break;
+            if (_enemyAgentSpottedFirstTime) return;
+            _enemyAgentSpottedFirstTime = true;
+            AddReward(_spottedPreyReward);
+            return;
         }
 
-        if (_enemyAgentSpotted) return;
         _enemyAgentSpotted = false;
     }
 
