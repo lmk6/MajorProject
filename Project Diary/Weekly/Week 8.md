@@ -24,3 +24,39 @@
 - Decide on what is next.
 #### Obstacles:
 - 'Desired' Results reached after a too long training.
+# Thursday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Observations completed.
+#### To accomplish today:
+- Run training with many changed hyperparameters to check if any improvement can be made.
+# Friday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Run quite a few trainings, tested almost all hyperparameters.
+- Observed differences and impact of each change.
+#### To accomplish today:
+- Test a few more things to improve the learning.
+- Begin creating the curriculum.
+#### Obstacles met:
+- Time is running out with little progress done to Prey - no strategy.
+# Saturday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Run few more experiments.
+- Analysed the results.
+#### To accomplish today:
+- Test batch/ buffer size
+- Create curriculum for the training and analyse the results.
+#### Obstacles met:
+- No visible change in training.
+# Sunday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Run more trainings.
+- Removed Reward signals from hyperparameter resulting in a great improvement.
+#### To accomplish today:
+- Run a few more trainings with different hyperparameters.
+- Create obstacles for simple environment.
+#### Obstacles met:
+- Training data takes up a lot of storage.

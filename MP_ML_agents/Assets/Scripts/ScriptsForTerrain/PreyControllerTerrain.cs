@@ -48,7 +48,6 @@ namespace ScriptsForTerrain
             //
             // transform.localPosition = (Vector3) newPosition;
             var spawnController = FindObjectOfType<SpawnController>();
-            transform.localPosition = spawnController.GetSpawnPoint();
         }
 
         public override void CollectObservations(VectorSensor sensor)

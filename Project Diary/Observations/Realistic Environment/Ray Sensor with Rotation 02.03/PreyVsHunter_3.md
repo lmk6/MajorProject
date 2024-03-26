@@ -37,7 +37,7 @@ Visual observations were no good as the Scene in Unity became very laggy.
 
 **Prey** agent shakes and does little movement, the reward system encourages it.
 ### Cumulative Reward Plot:
-![Cumulative Reward](Observations/Realistic%20Environment/Ray%20Sensor%20with%20Rotation%2002.03/CumulativeReward.png)
+![Cumulative Reward](CumulativeReward.png)
 *Blue represents Prey and pink represents Hunter.*
 
 On the plot above, we can clearly see that Hunter does not do anything to improve its result, ending up with approx. -189.
@@ -48,7 +48,7 @@ Prey on the other hand, is rewarded way too much, resulting in not even trying t
 
 The policy loss for both agents is almost the same, standing at 0.023. On this plot, we can see that policy loss has very little variation, approx. between 0.021 and 0.025. The policy loss should be generally less than 1 which means that the loss for this training is very small, resulting in no almost no change in the behaviour for both agents. It actually interesting to see that the Hunter agent, at the end, gives up completely and tries to minimise the penalty it gets.
 ### Value Loss Plot:
-![Policy Loss](Observations/Realistic%20Environment/Ray%20Sensor%20with%20Rotation%2002.03/ValueLoss.png)
+![Policy Loss](ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)*
 
 Prey Agent seems to have no idea what it gets the reward for and Hunter seems to stabilise itself from early on due to constantly failing making any improvement.

@@ -38,7 +38,7 @@ It was possible to take visual observations as the image was smooth enough.
 
 **Prey** agent rotates around itself and usually looks to the ground, a behaviour I find hard to explain.
 ### Cumulative Reward Plot:
-![Cumulative Reward](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2005.03/CumulativeReward.png)
+![Cumulative Reward](CumulativeReward.png)
 *Orange represents Prey and Green represents Hunter*
 
 Given that Prey Agent receives a reward for basically surviving long enough, it is no surprise that its result is a lot better than the Hunter's. It kept getting punished for colliding with the wall it could not see and for, most likely, spawning too close to the Hunter Agent.
@@ -50,7 +50,7 @@ Hunter Agent finally shows some kind of progress here, however, it is very unimp
 
 The policy loss is quite interesting here. Hunter Agents seems to give up on experimenting closer to the end and Prey Agent is supposedly trying new actions a bit more frequently. It is still worth noting that the policy loss (change in behaviour) here is small in general, only between ~0.021 and ~0.027, where 1 is the maximum.
 ### Value Loss Plot
-![Value Loss](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2005.03/ValueLoss.png)
+![Value Loss](ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 
 Prey Agent seems to slowly get better at predicting the value of each state. The opposite can be said about the Hunter Agent which, from around 250000th step, increases the value loss almost linearly.

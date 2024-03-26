@@ -40,11 +40,11 @@ The extended (1 million steps) training for #12 model took about 17.5 minutes.
 Model #15 seems to be the most successful one, Hunter agents keeps the ray sensor at a sensible level, pursuits the Prey when spotted in a close proximity. Hunter still runs into the walls for an unknown reason.
 **Prey** does not show much change in its' behaviour .
 ### Cumulative Reward Plot:
-![Cumulative Reward](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2012.03/CumulativeReward.png)
+![Cumulative Reward](CumulativeReward.png)
 ### Entropy Plot:
 ![Policy Loss](Entropy.png)
 ### Value Loss Plot
-![Value Loss](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2012.03/ValueLoss.png)
+![Value Loss](ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 
 Models #11 and #12 have a smaller loss compared to models with an additional observation and stacked observations.

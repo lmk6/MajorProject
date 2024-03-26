@@ -2,9 +2,9 @@ behaviors:
   Prey Controller:
     trainer_type: ppo
     hyperparameters:
-      batch_size: 1024
-      buffer_size: 10240
-      learning_rate: 0.0003
+      batch_size: 2048
+      buffer_size: 20480
+      learning_rate: 0.0001
       beta: 0.005
       epsilon: 0.2
       lambd: 0.95
@@ -22,23 +22,11 @@ behaviors:
       memory: null
       goal_conditioning_type: hyper
       deterministic: false
-    reward_signals:
-      extrinsic:
-        gamma: 0.99
-        strength: 1.0
-        network_settings:
-          normalize: false
-          hidden_units: 128
-          num_layers: 2
-          vis_encode_type: simple
-          memory: null
-          goal_conditioning_type: hyper
-          deterministic: false
     init_path: null
     keep_checkpoints: 5
     even_checkpoints: false
     max_steps: 2000000
-    time_horizon: 64
+    time_horizon: 1024
     summary_freq: 50000
     threaded: true
     self_play: null
@@ -47,9 +35,9 @@ behaviors:
   Hunter Controller:
     trainer_type: ppo
     hyperparameters:
-      batch_size: 1024
-      buffer_size: 10240
-      learning_rate: 0.0003
+      batch_size: 2048
+      buffer_size: 20480
+      learning_rate: 0.0001
       beta: 0.005
       epsilon: 0.2
       lambd: 0.95
@@ -67,23 +55,11 @@ behaviors:
       memory: null
       goal_conditioning_type: hyper
       deterministic: false
-    reward_signals:
-      extrinsic:
-        gamma: 0.99
-        strength: 1.0
-        network_settings:
-          normalize: false
-          hidden_units: 128
-          num_layers: 2
-          vis_encode_type: simple
-          memory: null
-          goal_conditioning_type: hyper
-          deterministic: false
     init_path: null
     keep_checkpoints: 5
     even_checkpoints: false
     max_steps: 2000000
-    time_horizon: 64
+    time_horizon: 1024
     summary_freq: 50000
     threaded: true
     self_play: null

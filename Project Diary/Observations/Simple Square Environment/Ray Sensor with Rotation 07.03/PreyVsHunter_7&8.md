@@ -39,7 +39,7 @@ Normalisation slightly improved the training time.
 **Hunter** agent is still acting chaotically but also a lot more dynamically, it moves around with a higher confidence but usually walks into the wall backwards.
 **Prey** displays the exact same behaviour as before.
 ### Cumulative Reward Plot:
-![Cumulative Reward](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2007.03/CumulativeReward.png)
+![Cumulative Reward](CumulativeReward.png)
 *Non-normalised: Pink represents Hunter and Orange represents Prey
 Normalised: Green represents Hunter and Purple represents Prey*
 Normalised Hunter agent seems to learn at a faster rate, achieving a substantially higher reward at at the end of training.
@@ -49,7 +49,7 @@ Normalised Hunter agent seems to learn at a faster rate, achieving a substantial
 
 Policy Loss seems to be the same for both configurations.
 ### Value Loss Plot
-![Value Loss](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2007.03/ValueLoss.png)
+![Value Loss](ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 
 Normalised agents end up with a better (lower) value loss.

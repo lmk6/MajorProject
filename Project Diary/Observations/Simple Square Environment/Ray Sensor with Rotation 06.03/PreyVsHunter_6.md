@@ -37,7 +37,7 @@ A small improvement compared to the previous model, mostly due to the more encou
 **Hunter** agent makes farther movement than previously and seems to be scouting the area around itself. The agent tends to fall into the wall a lot, mostly due to not scanning it first. Because of a quite chaotic movement, the prey tends to be in between the shot ray, causing the Hunter Agent to not see it. However, once spotted, Hunter seems to approach the prey a little but not fast enough to catch it before the timer ends. On occasions, when Prey is in a close proximity, Hunter manages to catch it.
 **Prey** agent rotates around itself and usually looks to the ground, a behaviour I had already seen before and it is quite expected as Hunter rarely poses any threat.
 ### Cumulative Reward Plot:
-![Cumulative Reward](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2006.03/CumulativeReward.png)
+![Cumulative Reward](CumulativeReward.png)
 *Pink represents Prey and Cyan represents Hunter*
 
 Given that Prey Agent receives a reward for basically surviving long enough, it is no surprise that its result is a lot better than the Hunter's. It kept getting punished for colliding with the wall it could not see and for, most likely, spawning too close to the Hunter Agent.
@@ -49,7 +49,7 @@ Hunter Agent seems to finally learn at a better rate, however, not fast enough.
 
 Both agents seem to have a fairly similar policy loss. The values are still low, between ~0.021 and ~0.027, where 1 is the maximum.
 ### Value Loss Plot
-![Value Loss](Observations/Simple%20Square%20Environment/Ray%20Sensor%20with%20Rotation%2006.03/ValueLoss.png)
+![Value Loss](ValueLoss.png)
 *How well the model is able to predict the value of each state - this should increase while learning and then decrease once stabilised. [Documentation Reference](<https://unity-technologies.github.io/ml-agents/Using-Tensorboard/#:~:text=Losses/Value%20Loss%20(PPO%3B,decrease%20once%20the%20reward%20stabilizes.>)* 
 
 Prey Agent is very good at predicting what reward each state will result in. Hunter Agent is bad at predicting the rewards, which is visible during the run of the trained model. Maybe it requires more observations to make some logic of it.

@@ -44,8 +44,6 @@ public class HunterController : Agent
 
     public override void OnEpisodeBegin()
     {
-        var spawnController = FindObjectOfType<SpawnController>();
-        transform.localPosition = spawnController.GetSpawnPoint();
         _distanceCheckpoint = transform.localPosition;
         _raySensor = raySensorObj.GetComponent<RayPerceptionSensorComponent3D>();
         _timeOnHunger = 0;

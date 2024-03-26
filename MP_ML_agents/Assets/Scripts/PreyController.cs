@@ -44,8 +44,10 @@ public class PreyController : Agent
         // }
         //
         // transform.localPosition = (Vector3) newPosition;
-        var spawnController = FindObjectOfType<SpawnController>();
-        transform.localPosition = spawnController.GetSpawnPoint();
+        var spawnController = GetComponentInParent<SpawnController>();
+        var spawnPoints = spawnController.GetAgentsSpawnPoints();
+        transform.localPosition = spawnPoints[0];
+        classObject.transform.localPosition = spawnPoints[1];
     }
 
     public override void CollectObservations(VectorSensor sensor)
