@@ -19,4 +19,4 @@
 - Complete observations for previous models.
 - Create curriculum for training.
 #### Obstacles:
-- Trained models need to be moved outside the repository to free up the space.
+- Curriculum requires careful planning.
