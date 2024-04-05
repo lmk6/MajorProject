@@ -15,11 +15,14 @@ public class PreyController : Agent
     private Color _defaultColor;
 
     // private float _currentDistance = -1;
-    private float _ultimateReward = 50f;
-    private float _smallReward = 0.3f;
+    private float _keepingDistanceReward = 0.05f;
+    private float _spottedHunterReward = 15f;
     private float _fullPenalty = -50f;
     private float _smallPenalty = -0.5f;
     private float _stepPenalty = -0.05f;
+
+    private float _closestDistanceToTarget;
+    private float _lastObservedDistanceToTarget;
 
     private float _rayAngle;
     private float _maxAngle = 45f;
@@ -28,6 +31,7 @@ public class PreyController : Agent
     private Rigidbody rb;
     private RayPerceptionSensorComponent3D _raySensor;
 
+    private bool _enemyAgentSpottedFirstTime;
     private bool _enemyAgentSpotted;
 
     public override void Initialize()
@@ -48,6 +52,8 @@ public class PreyController : Agent
         var spawnPoints = spawnController.GetAgentsSpawnPoints();
         transform.localPosition = spawnPoints[0];
         classObject.transform.localPosition = spawnPoints[1];
+        _closestDistanceToTarget = 999f; // High value to be considered as 'unknown'
+        _lastObservedDistanceToTarget = _closestDistanceToTarget;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -56,6 +62,7 @@ public class PreyController : Agent
         // sensor.AddObservation(target.localPosition);
         sensor.AddObservation(_rayAngle);
         sensor.AddObservation(_enemyAgentSpotted);
+        sensor.AddObservation(_lastObservedDistanceToTarget);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -114,11 +121,19 @@ public class PreyController : Agent
         {
             GameObject hit = rayOutput.HitGameObject;
             if (hit == null || !hit.CompareTag(enemyAgent.tag)) continue;
+            var distance = Vector3.Distance(transform.localPosition, hit.transform.localPosition);
+            if (distance >= _closestDistanceToTarget)
+            {
+                AddReward(_keepingDistanceReward);
+                _closestDistanceToTarget = distance;
+            }
+            _lastObservedDistanceToTarget = distance;
             _enemyAgentSpotted = true;
-            break;
+            if (_enemyAgentSpottedFirstTime) return;
+            _enemyAgentSpottedFirstTime = true;
+            AddReward(_spottedHunterReward);
+            return;
         }
-
-        if (_enemyAgentSpotted) return;
         _enemyAgentSpotted = false;
     }
 

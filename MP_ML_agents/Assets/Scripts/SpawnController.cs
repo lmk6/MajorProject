@@ -103,18 +103,18 @@ public class SpawnController : MonoBehaviour
 
     private void ComputeValidSpawnAreaForTerrain()
     {
-        Vector3 terrainPosition = terrain.transform.localPosition;
         Vector3 terrainSize = terrain.terrainData.size;
-        float minX = terrainPosition.x + spawnEdgeDistance;
-        float maxX = terrainPosition.x + terrainSize.x - spawnEdgeDistance;
-        float minZ = terrainPosition.z + spawnEdgeDistance;
-        float maxZ = terrainPosition.z + terrainSize.z - spawnEdgeDistance;
+        float minX = spawnEdgeDistance;
+        float maxX = terrainSize.x - spawnEdgeDistance;
+        float minZ = spawnEdgeDistance;
+        float maxZ = terrainSize.z - spawnEdgeDistance;
 
         for (float x = minX; x < maxX; x++)
         {
             for (float z = minZ; z < maxZ; z++)
             {
-                float y = terrain.SampleHeight(new Vector3(x, 0f, z));
+                var worldPos = terrain.transform.TransformPoint(new Vector3(x, 0f, z));
+                float y = terrain.SampleHeight(worldPos);
 
                 // Check if the height is within the valid range
                 if (y <= maximumHeight)
