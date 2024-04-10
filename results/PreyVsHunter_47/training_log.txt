@@ -1,0 +1,193 @@
+[INFO] Listening on port 5004. Start training by pressing the Play button in the Unity Editor.
+[INFO] Connected to Unity environment with package version 2.0.1 and communication version 1.5.0
+[INFO] Connected new brain: Prey Controller?team=0
+[INFO] Connected new brain: Hunter Controller?team=0
+
+
+	Unity Technologies
+
+ Version information:
+  ml-agents: 1.0.0,
+  ml-agents-envs: 1.0.0,
+  Communicator API: 1.5.0,
+  PyTorch: 2.2.1+cu121
+[INFO] Hyperparameters for behavior name Prey Controller: 
+	trainer_type:	ppo
+	hyperparameters:	
+	  batch_size:	2048
+	  buffer_size:	20480
+	  learning_rate:	0.0001
+	  beta:	0.005
+	  epsilon:	0.2
+	  lambd:	0.95
+	  num_epoch:	3
+	  shared_critic:	False
+	  learning_rate_schedule:	linear
+	  beta_schedule:	linear
+	  epsilon_schedule:	linear
+	checkpoint_interval:	500000
+	network_settings:	
+	  normalize:	True
+	  hidden_units:	256
+	  num_layers:	3
+	  vis_encode_type:	simple
+	  memory:	None
+	  goal_conditioning_type:	hyper
+	  deterministic:	False
+	reward_signals:	
+	  extrinsic:	
+	    gamma:	0.99
+	    strength:	1.0
+	    network_settings:	
+	      normalize:	False
+	      hidden_units:	128
+	      num_layers:	2
+	      vis_encode_type:	simple
+	      memory:	None
+	      goal_conditioning_type:	hyper
+	      deterministic:	False
+	init_path:	None
+	keep_checkpoints:	5
+	even_checkpoints:	False
+	max_steps:	2000000
+	time_horizon:	1024
+	summary_freq:	50000
+	threaded:	True
+	self_play:	None
+	behavioral_cloning:	None
+[INFO] Hyperparameters for behavior name Hunter Controller: 
+	trainer_type:	ppo
+	hyperparameters:	
+	  batch_size:	2048
+	  buffer_size:	20480
+	  learning_rate:	0.0001
+	  beta:	0.005
+	  epsilon:	0.2
+	  lambd:	0.95
+	  num_epoch:	3
+	  shared_critic:	False
+	  learning_rate_schedule:	linear
+	  beta_schedule:	linear
+	  epsilon_schedule:	linear
+	checkpoint_interval:	500000
+	network_settings:	
+	  normalize:	True
+	  hidden_units:	256
+	  num_layers:	3
+	  vis_encode_type:	simple
+	  memory:	None
+	  goal_conditioning_type:	hyper
+	  deterministic:	False
+	reward_signals:	
+	  extrinsic:	
+	    gamma:	0.99
+	    strength:	1.0
+	    network_settings:	
+	      normalize:	False
+	      hidden_units:	128
+	      num_layers:	2
+	      vis_encode_type:	simple
+	      memory:	None
+	      goal_conditioning_type:	hyper
+	      deterministic:	False
+	init_path:	None
+	keep_checkpoints:	5
+	even_checkpoints:	False
+	max_steps:	2000000
+	time_horizon:	1024
+	summary_freq:	50000
+	threaded:	True
+	self_play:	None
+	behavioral_cloning:	None
+[INFO] Prey Controller. Step: 50000. Time Elapsed: 159.606 s. Mean Reward: 16.000. Std of Reward: 55.172. Training.
+[INFO] Hunter Controller. Step: 50000. Time Elapsed: 160.457 s. Mean Reward: -82.906. Std of Reward: 36.138. Training.
+[INFO] Hunter Controller. Step: 100000. Time Elapsed: 289.569 s. Mean Reward: -83.401. Std of Reward: 37.316. Training.
+[INFO] Prey Controller. Step: 100000. Time Elapsed: 289.602 s. Mean Reward: 22.680. Std of Reward: 50.268. Training.
+[INFO] Prey Controller. Step: 150000. Time Elapsed: 410.101 s. Mean Reward: 18.557. Std of Reward: 56.221. Training.
+[INFO] Hunter Controller. Step: 150000. Time Elapsed: 410.140 s. Mean Reward: -80.988. Std of Reward: 35.280. Training.
+[INFO] Prey Controller. Step: 200000. Time Elapsed: 529.307 s. Mean Reward: 38.764. Std of Reward: 31.581. Training.
+[INFO] Hunter Controller. Step: 200000. Time Elapsed: 529.358 s. Mean Reward: -94.056. Std of Reward: 22.507. Training.
+[INFO] Prey Controller. Step: 250000. Time Elapsed: 649.625 s. Mean Reward: 33.333. Std of Reward: 39.441. Training.
+[INFO] Hunter Controller. Step: 250000. Time Elapsed: 649.656 s. Mean Reward: -90.184. Std of Reward: 28.775. Training.
+[INFO] Hunter Controller. Step: 300000. Time Elapsed: 761.593 s. Mean Reward: -88.551. Std of Reward: 28.961. Training.
+[INFO] Prey Controller. Step: 300000. Time Elapsed: 761.653 s. Mean Reward: 43.023. Std of Reward: 28.695. Training.
+[INFO] Hunter Controller. Step: 350000. Time Elapsed: 873.056 s. Mean Reward: -84.326. Std of Reward: 38.554. Training.
+[INFO] Prey Controller. Step: 350000. Time Elapsed: 873.088 s. Mean Reward: 37.500. Std of Reward: 33.072. Training.
+[INFO] Prey Controller. Step: 400000. Time Elapsed: 984.244 s. Mean Reward: 36.517. Std of Reward: 34.967. Training.
+[INFO] Hunter Controller. Step: 400000. Time Elapsed: 984.292 s. Mean Reward: -80.293. Std of Reward: 40.738. Training.
+[INFO] Prey Controller. Step: 450000. Time Elapsed: 1089.716 s. Mean Reward: 38.953. Std of Reward: 36.089. Training.
+[INFO] Hunter Controller. Step: 450000. Time Elapsed: 1089.749 s. Mean Reward: -87.254. Std of Reward: 26.981. Training.
+[INFO] Hunter Controller. Step: 500000. Time Elapsed: 1209.035 s. Mean Reward: -78.387. Std of Reward: 44.505. Training.
+[INFO] Prey Controller. Step: 500000. Time Elapsed: 1209.143 s. Mean Reward: 31.111. Std of Reward: 39.845. Training.
+[INFO] Exported results\PreyVsHunter_47\Hunter Controller\Hunter Controller-499494.onnx
+[INFO] Exported results\PreyVsHunter_47\Prey Controller\Prey Controller-499494.onnx
+[INFO] Hunter Controller. Step: 550000. Time Elapsed: 1319.100 s. Mean Reward: -82.968. Std of Reward: 36.637. Training.
+[INFO] Prey Controller. Step: 550000. Time Elapsed: 1319.134 s. Mean Reward: 35.955. Std of Reward: 37.468. Training.
+[INFO] Hunter Controller. Step: 600000. Time Elapsed: 1430.589 s. Mean Reward: -74.880. Std of Reward: 47.816. Training.
+[INFO] Prey Controller. Step: 600000. Time Elapsed: 1430.783 s. Mean Reward: 31.720. Std of Reward: 38.650. Training.
+[INFO] Prey Controller. Step: 650000. Time Elapsed: 1544.723 s. Mean Reward: 32.778. Std of Reward: 40.250. Training.
+[INFO] Hunter Controller. Step: 650000. Time Elapsed: 1544.754 s. Mean Reward: -78.708. Std of Reward: 42.667. Training.
+[INFO] Prey Controller. Step: 700000. Time Elapsed: 1648.681 s. Mean Reward: 24.211. Std of Reward: 46.376. Training.
+[INFO] Hunter Controller. Step: 700000. Time Elapsed: 1648.718 s. Mean Reward: -64.189. Std of Reward: 55.607. Training.
+[INFO] Hunter Controller. Step: 750000. Time Elapsed: 1773.218 s. Mean Reward: -62.885. Std of Reward: 57.646. Training.
+[INFO] Prey Controller. Step: 750000. Time Elapsed: 1773.250 s. Mean Reward: 25.521. Std of Reward: 42.692. Training.
+[INFO] Prey Controller. Step: 800000. Time Elapsed: 1879.681 s. Mean Reward: 33.333. Std of Reward: 37.268. Training.
+[INFO] Hunter Controller. Step: 800000. Time Elapsed: 1879.711 s. Mean Reward: -73.124. Std of Reward: 49.175. Training.
+[INFO] Prey Controller. Step: 850000. Time Elapsed: 1990.471 s. Mean Reward: 21.649. Std of Reward: 48.112. Training.
+[INFO] Hunter Controller. Step: 850000. Time Elapsed: 1990.505 s. Mean Reward: -63.081. Std of Reward: 55.795. Training.
+[INFO] Hunter Controller. Step: 900000. Time Elapsed: 2110.613 s. Mean Reward: -69.265. Std of Reward: 51.429. Training.
+[INFO] Prey Controller. Step: 900000. Time Elapsed: 2110.645 s. Mean Reward: 28.261. Std of Reward: 43.178. Training.
+[INFO] Hunter Controller. Step: 950000. Time Elapsed: 2224.728 s. Mean Reward: -45.757. Std of Reward: 64.246. Training.
+[INFO] Prey Controller. Step: 950000. Time Elapsed: 2224.761 s. Mean Reward: 10.000. Std of Reward: 49.952. Training.
+[INFO] Prey Controller. Step: 1000000. Time Elapsed: 2339.258 s. Mean Reward: 14.796. Std of Reward: 47.493. Training.
+[INFO] Exported results\PreyVsHunter_47\Prey Controller\Prey Controller-999668.onnx
+[INFO] Hunter Controller. Step: 1000000. Time Elapsed: 2339.636 s. Mean Reward: -50.492. Std of Reward: 62.401. Training.
+[INFO] Exported results\PreyVsHunter_47\Hunter Controller\Hunter Controller-999668.onnx
+[INFO] Hunter Controller. Step: 1050000. Time Elapsed: 2452.425 s. Mean Reward: -46.102. Std of Reward: 65.090. Training.
+[INFO] Prey Controller. Step: 1050000. Time Elapsed: 2452.495 s. Mean Reward: 11.792. Std of Reward: 50.727. Training.
+[INFO] Hunter Controller. Step: 1100000. Time Elapsed: 2584.554 s. Mean Reward: -34.040. Std of Reward: 66.004. Training.
+[INFO] Prey Controller. Step: 1100000. Time Elapsed: 2584.590 s. Mean Reward: 1.389. Std of Reward: 49.281. Training.
+[INFO] Prey Controller. Step: 1150000. Time Elapsed: 2712.771 s. Mean Reward: -3.419. Std of Reward: 49.668. Training.
+[INFO] Hunter Controller. Step: 1150000. Time Elapsed: 2712.822 s. Mean Reward: -24.350. Std of Reward: 68.134. Training.
+[INFO] Hunter Controller. Step: 1200000. Time Elapsed: 2840.699 s. Mean Reward: -23.089. Std of Reward: 69.241. Training.
+[INFO] Prey Controller. Step: 1200000. Time Elapsed: 2840.729 s. Mean Reward: -5.200. Std of Reward: 49.325. Training.
+[INFO] Hunter Controller. Step: 1250000. Time Elapsed: 2956.726 s. Mean Reward: -9.955. Std of Reward: 67.283. Training.
+[INFO] Prey Controller. Step: 1250000. Time Elapsed: 2957.326 s. Mean Reward: -14.231. Std of Reward: 47.326. Training.
+[INFO] Hunter Controller. Step: 1300000. Time Elapsed: 3091.698 s. Mean Reward: -12.041. Std of Reward: 68.845. Training.
+[INFO] Prey Controller. Step: 1300000. Time Elapsed: 3091.731 s. Mean Reward: -10.000. Std of Reward: 48.610. Training.
+[INFO] Hunter Controller. Step: 1350000. Time Elapsed: 3212.525 s. Mean Reward: -3.661. Std of Reward: 66.737. Training.
+[INFO] Prey Controller. Step: 1350000. Time Elapsed: 3212.558 s. Mean Reward: -16.197. Std of Reward: 47.675. Training.
+[INFO] Hunter Controller. Step: 1400000. Time Elapsed: 3349.313 s. Mean Reward: -6.979. Std of Reward: 69.091. Training.
+[INFO] Prey Controller. Step: 1400000. Time Elapsed: 3349.350 s. Mean Reward: -14.184. Std of Reward: 47.388. Training.
+[INFO] Prey Controller. Step: 1450000. Time Elapsed: 3480.165 s. Mean Reward: -20.513. Std of Reward: 45.949. Training.
+[INFO] Hunter Controller. Step: 1450000. Time Elapsed: 3480.199 s. Mean Reward: 4.163. Std of Reward: 66.202. Training.
+[INFO] Prey Controller. Step: 1500000. Time Elapsed: 3610.658 s. Mean Reward: -23.585. Std of Reward: 44.443. Training.
+[INFO] Hunter Controller. Step: 1500000. Time Elapsed: 3610.764 s. Mean Reward: 7.456. Std of Reward: 63.662. Training.
+[INFO] Exported results\PreyVsHunter_47\Prey Controller\Prey Controller-1499768.onnx
+[INFO] Exported results\PreyVsHunter_47\Hunter Controller\Hunter Controller-1499768.onnx
+[INFO] Hunter Controller. Step: 1550000. Time Elapsed: 3732.711 s. Mean Reward: 11.514. Std of Reward: 61.474. Training.
+[INFO] Prey Controller. Step: 1550000. Time Elapsed: 3732.750 s. Mean Reward: -26.647. Std of Reward: 42.660. Training.
+[INFO] Prey Controller. Step: 1600000. Time Elapsed: 3856.392 s. Mean Reward: -30.460. Std of Reward: 40.012. Training.
+[INFO] Hunter Controller. Step: 1600000. Time Elapsed: 3856.425 s. Mean Reward: 17.258. Std of Reward: 58.062. Training.
+[INFO] Hunter Controller. Step: 1650000. Time Elapsed: 3989.550 s. Mean Reward: 14.975. Std of Reward: 57.891. Training.
+[INFO] Prey Controller. Step: 1650000. Time Elapsed: 3989.604 s. Mean Reward: -30.303. Std of Reward: 39.961. Training.
+[INFO] Hunter Controller. Step: 1700000. Time Elapsed: 4110.646 s. Mean Reward: 19.305. Std of Reward: 57.216. Training.
+[INFO] Prey Controller. Step: 1700000. Time Elapsed: 4110.680 s. Mean Reward: -31.967. Std of Reward: 39.150. Training.
+[INFO] Prey Controller. Step: 1750000. Time Elapsed: 4262.716 s. Mean Reward: -38.443. Std of Reward: 31.785. Training.
+[INFO] Hunter Controller. Step: 1750000. Time Elapsed: 4262.750 s. Mean Reward: 31.389. Std of Reward: 47.608. Training.
+[INFO] Prey Controller. Step: 1800000. Time Elapsed: 4397.878 s. Mean Reward: -31.180. Std of Reward: 39.623. Training.
+[INFO] Hunter Controller. Step: 1800000. Time Elapsed: 4397.915 s. Mean Reward: 17.420. Std of Reward: 59.433. Training.
+[INFO] Hunter Controller. Step: 1850000. Time Elapsed: 4512.842 s. Mean Reward: 23.668. Std of Reward: 55.084. Training.
+[INFO] Prey Controller. Step: 1850000. Time Elapsed: 4512.875 s. Mean Reward: -33.679. Std of Reward: 37.478. Training.
+[INFO] Prey Controller. Step: 1900000. Time Elapsed: 4646.613 s. Mean Reward: -34.878. Std of Reward: 35.139. Training.
+[INFO] Hunter Controller. Step: 1900000. Time Elapsed: 4646.647 s. Mean Reward: 25.399. Std of Reward: 55.408. Training.
+[INFO] Hunter Controller. Step: 1950000. Time Elapsed: 4776.789 s. Mean Reward: 24.390. Std of Reward: 55.162. Training.
+[INFO] Prey Controller. Step: 1950000. Time Elapsed: 4776.822 s. Mean Reward: -34.596. Std of Reward: 36.273. Training.
+[INFO] Hunter Controller. Step: 2000000. Time Elapsed: 4915.491 s. Mean Reward: 24.940. Std of Reward: 54.445. Training.
+[INFO] Prey Controller. Step: 2000000. Time Elapsed: 4915.606 s. Mean Reward: -35.279. Std of Reward: 34.708. Training.
+[INFO] Exported results\PreyVsHunter_47\Hunter Controller\Hunter Controller-1999860.onnx
+[INFO] Exported results\PreyVsHunter_47\Prey Controller\Prey Controller-1999860.onnx
+[INFO] Exported results\PreyVsHunter_47\Prey Controller\Prey Controller-2000048.onnx
+[INFO] Copied results\PreyVsHunter_47\Prey Controller\Prey Controller-2000048.onnx to results\PreyVsHunter_47\Prey Controller.onnx.
+[INFO] Exported results\PreyVsHunter_47\Hunter Controller\Hunter Controller-2000048.onnx
+[INFO] Copied results\PreyVsHunter_47\Hunter Controller\Hunter Controller-2000048.onnx to results\PreyVsHunter_47\Hunter Controller.onnx.
