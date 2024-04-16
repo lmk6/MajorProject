@@ -49,7 +49,7 @@ MonoBehaviour:
   - Wall
   - Hunter
   m_RaysPerDirection: 10
-  m_MaxRayDegrees: 70
+  m_MaxRayDegrees: 80
   m_SphereCastRadius: 0.5
   m_RayLength: 50
   m_RayLayerMask:

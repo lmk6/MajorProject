@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1817873958456709157}
   - component: {fileID: 2084991884936198887}
   - component: {fileID: 6869182680991883639}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Left Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 8306199842353831898}
   - component: {fileID: 9183191260847127688}
   - component: {fileID: 5817781741217637737}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 1970898125479465626}
   - component: {fileID: 7059845797875845940}
   - component: {fileID: 8950532139729984401}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 980318800841086267}
   - component: {fileID: 6987733507334427297}
   - component: {fileID: 7697877283254756918}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Right Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1323558309649983678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Claw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 8063792368852578006}
   - component: {fileID: 6067963154170029767}
   - component: {fileID: 8606579852742637280}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 4755171169816693118}
   - component: {fileID: 3331580254221137420}
   - component: {fileID: 6218241707447636973}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +953,7 @@ GameObject:
   - component: {fileID: 1902960340530116934}
   - component: {fileID: 5283863889100864065}
   - component: {fileID: 1768670688622325952}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1058,7 +1058,7 @@ GameObject:
   - component: {fileID: 826889795946255012}
   - component: {fileID: 6014593116631556183}
   - component: {fileID: 8067416110621968349}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1160,7 +1160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2274132603089008238}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Claws
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1193,7 +1193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3834107704387210100}
-  m_Layer: 6
+  m_Layer: 2
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 3921078507159136186}
   - component: {fileID: 1400817514154031076}
   - component: {fileID: 1406577143536009672}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,7 +1423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7101085153759432345}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Claw_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1460,7 +1460,7 @@ GameObject:
   - component: {fileID: 9011830942346312774}
   - component: {fileID: 1758090474612514839}
   - component: {fileID: 3462087399443303086}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
