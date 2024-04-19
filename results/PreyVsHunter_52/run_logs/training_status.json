@@ -1,0 +1,123 @@
+{
+    "Prey Controller": {
+        "checkpoints": [
+            {
+                "steps": 499685,
+                "file_path": "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-499685.onnx",
+                "reward": 43.75,
+                "creation_time": 1713518415.663748,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-499685.pt"
+                ]
+            },
+            {
+                "steps": 999956,
+                "file_path": "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-999956.onnx",
+                "reward": 32.608695652173914,
+                "creation_time": 1713519301.6348507,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-999956.pt"
+                ]
+            },
+            {
+                "steps": 1499997,
+                "file_path": "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-1499997.onnx",
+                "reward": -1.8518518518518519,
+                "creation_time": 1713520191.019364,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-1499997.pt"
+                ]
+            },
+            {
+                "steps": 1999587,
+                "file_path": "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-1999587.onnx",
+                "reward": -13.333333333333334,
+                "creation_time": 1713521122.371429,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-1999587.pt"
+                ]
+            },
+            {
+                "steps": 2000614,
+                "file_path": "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-2000614.onnx",
+                "reward": -16.666666666666668,
+                "creation_time": 1713521122.595625,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-2000614.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2000614,
+            "file_path": "results\\PreyVsHunter_52\\Prey Controller.onnx",
+            "reward": -16.666666666666668,
+            "creation_time": 1713521122.595625,
+            "auxillary_file_paths": [
+                "results\\PreyVsHunter_52\\Prey Controller\\Prey Controller-2000614.pt"
+            ]
+        }
+    },
+    "Hunter Controller": {
+        "checkpoints": [
+            {
+                "steps": 499685,
+                "file_path": "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-499685.onnx",
+                "reward": null,
+                "creation_time": 1713518452.497402,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-499685.pt"
+                ]
+            },
+            {
+                "steps": 999956,
+                "file_path": "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-999956.onnx",
+                "reward": -93.03000335693359,
+                "creation_time": 1713519334.6023476,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-999956.pt"
+                ]
+            },
+            {
+                "steps": 1499997,
+                "file_path": "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-1499997.onnx",
+                "reward": -5.846875965595245,
+                "creation_time": 1713520209.770303,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-1499997.pt"
+                ]
+            },
+            {
+                "steps": 1999587,
+                "file_path": "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-1999587.onnx",
+                "reward": -15.38235367045683,
+                "creation_time": 1713521122.4212036,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-1999587.pt"
+                ]
+            },
+            {
+                "steps": 2000614,
+                "file_path": "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-2000614.onnx",
+                "reward": -12.78648685764622,
+                "creation_time": 1713521122.5505538,
+                "auxillary_file_paths": [
+                    "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-2000614.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2000614,
+            "file_path": "results\\PreyVsHunter_52\\Hunter Controller.onnx",
+            "reward": -12.78648685764622,
+            "creation_time": 1713521122.5505538,
+            "auxillary_file_paths": [
+                "results\\PreyVsHunter_52\\Hunter Controller\\Hunter Controller-2000614.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.0.0",
+        "torch_version": "2.2.0+cpu"
+    }
+}

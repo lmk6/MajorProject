@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpawnController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private GameObject obstacle1 = null;
     [SerializeField] private GameObject obstacle2 = null;
     [SerializeField] private GameObject obstacle3 = null;
+    [SerializeField] private bool spawnObstacles = true;
 
     private List<Vector3> _startingSpawnArea;
     private List<Vector3> _validSpawnArea;
@@ -24,7 +26,8 @@ public class SpawnController : MonoBehaviour
         _obstacles.ForEach(Destroy);
         var spawnPoint1 = GetSpawnPoint();
         var spawnPoint2 = GetSpawnPoint();
-        SpawnObstacles();
+        if (spawnObstacles)
+            SpawnObstacles();
         return new[] { spawnPoint1, spawnPoint2 };
     }
 
@@ -37,6 +40,7 @@ public class SpawnController : MonoBehaviour
             if (p != null)
             {
                 var spawnPoint = transform.TransformPoint(GetSpawnPoint());
+                spawnPoint -= (new Vector3(0, 0.3f, 0));
                 _obstacles.Add(Instantiate(p, spawnPoint, GetRotation()));
             }
         });

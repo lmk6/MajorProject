@@ -59,7 +59,6 @@ public class PreyController : Agent
     public override void CollectObservations(VectorSensor sensor)
     {
         sensor.AddObservation(transform.localPosition);
-        // sensor.AddObservation(target.localPosition);
         sensor.AddObservation(_rayAngle);
         sensor.AddObservation(_enemyAgentSpotted);
         sensor.AddObservation(_lastObservedDistanceToTarget);

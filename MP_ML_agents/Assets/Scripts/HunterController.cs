@@ -16,6 +16,7 @@ public class HunterController : Agent
     private Rigidbody _rigidbody;
     private RayPerceptionSensorComponent3D _raySensor;
     private Vector3 _distanceCheckpoint;
+    private Vector3 _lastPreysKnownLocation;
 
     private int _timeOnHunger;
     private float _timePassed;
@@ -24,6 +25,7 @@ public class HunterController : Agent
     private float _ultimateReward = 50f;
     private float _spottedPreyReward = 15f;
     private float _gettingCloserReward = 0.05f;
+    private float _loosingSightOfPreyPenalty = -0.5f;
     private float _fullPenalty = -50f;
     private float _hungerIncreasedPenalty = -1f;
 
@@ -51,6 +53,7 @@ public class HunterController : Agent
         _enemyAgentSpottedFirstTime = false;
         _closestDistanceToTarget = 999f; // High value to be considered as 'unknown'
         _lastObservedDistanceToTarget = _closestDistanceToTarget;
+        _lastPreysKnownLocation = new Vector3(0, 0, 0);
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -58,6 +61,7 @@ public class HunterController : Agent
         sensor.AddObservation(transform.localPosition);
         sensor.AddObservation(_rayAngle);
         sensor.AddObservation(_enemyAgentSpotted);
+        sensor.AddObservation(_lastPreysKnownLocation);
         sensor.AddObservation(_lastObservedDistanceToTarget);
         sensor.AddObservation(_timeOnHunger);
     }
@@ -97,7 +101,16 @@ public class HunterController : Agent
             _timePassed = 0f;
             _timeOnHunger++;
             AddReward(_hungerIncreasedPenalty);
+            LostPreyFromSightPenalty();
             CheckHungerLevel();
+        }
+    }
+
+    private void LostPreyFromSightPenalty()
+    {
+        if (_enemyAgentSpottedFirstTime)
+        {
+            AddReward(_loosingSightOfPreyPenalty);
         }
     }
 
@@ -152,6 +165,7 @@ public class HunterController : Agent
         {
             GameObject hit = rayOutput.HitGameObject;
             if (hit == null || !hit.CompareTag(target.tag)) continue;
+            _lastPreysKnownLocation = classObject.transform.localPosition;
             var distance = Vector3.Distance(transform.localPosition, hit.transform.localPosition);
             if (distance < _closestDistanceToTarget)
             {
