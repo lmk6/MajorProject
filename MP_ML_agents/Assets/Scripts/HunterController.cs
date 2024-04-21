@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -14,7 +16,7 @@ public class HunterController : Agent
     [SerializeField] private int maximumOnHungerTime;
 
     private Rigidbody _rigidbody;
-    private RayPerceptionSensorComponent3D _raySensor;
+    private List<RayPerceptionSensorComponent3D> _raySensors;
     private Vector3 _distanceCheckpoint;
     private Vector3 _lastPreysKnownLocation;
 
@@ -47,7 +49,8 @@ public class HunterController : Agent
     public override void OnEpisodeBegin()
     {
         _distanceCheckpoint = transform.localPosition;
-        _raySensor = raySensorObj.GetComponent<RayPerceptionSensorComponent3D>();
+        _raySensors = new List<RayPerceptionSensorComponent3D>();
+        _raySensors.AddRange(raySensorObj.GetComponentsInChildren<RayPerceptionSensorComponent3D>());
         _timeOnHunger = 0;
         _enemyAgentSpotted = false;
         _enemyAgentSpottedFirstTime = false;
@@ -70,7 +73,6 @@ public class HunterController : Agent
     {
         float moveRotate = actions.ContinuousActions[0];
         float moveForward = actions.ContinuousActions[1];
-        float angleChoice = actions.ContinuousActions[2];
 
         // Vector3 velocity = new Vector3(moveX, 0f, moveZ);
         // velocity = velocity.normalized * Time.deltaTime * moveSpeed;
@@ -78,8 +80,6 @@ public class HunterController : Agent
 
         _rigidbody.MovePosition(transform.position + transform.forward * moveForward * moveSpeed * Time.deltaTime);
         transform.Rotate(0f, moveRotate * moveSpeed, 0f, Space.Self);
-
-        AdjustRaySensorAngle(angleChoice);
 
         ApplyPenalties();
     }
@@ -89,7 +89,6 @@ public class HunterController : Agent
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetAxisRaw("Horizontal");
         continuousActions[1] = Input.GetAxisRaw("Vertical");
-        continuousActions[2] = Input.GetKey(KeyCode.Q) ? -1f : (Input.GetKey(KeyCode.E) ? 1f : 0f);
         // continuousActions[1] = Input.GetKey(KeyCode.Space) ? 1.0f : 0.0f;;
     }
 
@@ -114,22 +113,11 @@ public class HunterController : Agent
         }
     }
 
-    private void AdjustRaySensorAngle(float angleChoice)
-    {
-        if (raySensorObj == null || angleChoice == 0) return;
-        _rayAngle = angleChoice > 0
-            ? Mathf.Min(_rayAngle + _angleStep, _maxAngle)
-            : Mathf.Max(_rayAngle - _angleStep, -_maxAngle);
-
-        var currentRotation = raySensorObj.transform.localRotation.eulerAngles;
-        raySensorObj.transform.localRotation = Quaternion.Euler(_rayAngle, currentRotation.y, currentRotation.z);
-    }
-
     private void ApplyPenalties()
     {
         ApplyFallPenalty();
         // ApplyDistancePenalty();
-        CheckRayView();
+        CheckSensors();
     }
 
     private void ApplyFallPenalty()
@@ -151,16 +139,22 @@ public class HunterController : Agent
         }
     }
 
+    private void CheckSensors()
+    {
+        if (_raySensors.Count == 0) return;
+
+        foreach (var raySensor in _raySensors)
+        {
+            var rayOutputs = RayPerceptionSensor.Perceive(raySensor.GetRayPerceptionInput()).RayOutputs;
+            StartCoroutine(CheckRayView(rayOutputs));
+        }
+    }
+
     /**
      * Reward for spotting the target
      */
-    private void CheckRayView()
+    private IEnumerator CheckRayView(RayPerceptionOutput.RayOutput[] rayOutputs)
     {
-        if (_raySensor == null) return;
-
-        var rayOutputs = RayPerceptionSensor.Perceive(_raySensor.GetRayPerceptionInput())
-            .RayOutputs;
-
         foreach (var rayOutput in rayOutputs)
         {
             GameObject hit = rayOutput.HitGameObject;
@@ -172,12 +166,13 @@ public class HunterController : Agent
                 AddReward(_gettingCloserReward);
                 _closestDistanceToTarget = distance;
             }
+
             _lastObservedDistanceToTarget = distance;
             _enemyAgentSpotted = true;
-            if (_enemyAgentSpottedFirstTime) return;
+            if (_enemyAgentSpottedFirstTime) yield break;
             _enemyAgentSpottedFirstTime = true;
             AddReward(_spottedPreyReward);
-            return;
+            yield break;
         }
 
         _enemyAgentSpotted = false;

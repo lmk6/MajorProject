@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
@@ -29,7 +31,7 @@ public class PreyController : Agent
     private float _angleStep = 5f;
 
     private Rigidbody rb;
-    private RayPerceptionSensorComponent3D _raySensor;
+    private List<RayPerceptionSensorComponent3D> _raySensors;
 
     private bool _enemyAgentSpottedFirstTime;
     private bool _enemyAgentSpotted;
@@ -50,6 +52,8 @@ public class PreyController : Agent
         // transform.localPosition = (Vector3) newPosition;
         var spawnController = GetComponentInParent<SpawnController>();
         var spawnPoints = spawnController.GetAgentsSpawnPoints();
+        _raySensors = new List<RayPerceptionSensorComponent3D>();
+        _raySensors.AddRange(raySensorObj.GetComponentsInChildren<RayPerceptionSensorComponent3D>());
         transform.localPosition = spawnPoints[0];
         classObject.transform.localPosition = spawnPoints[1];
         _closestDistanceToTarget = 999f; // High value to be considered as 'unknown'
@@ -68,7 +72,6 @@ public class PreyController : Agent
     {
         float moveRotate = actions.ContinuousActions[0];
         float moveForward = actions.ContinuousActions[1];
-        float angleChoice = actions.ContinuousActions[2];
 
         // Vector3 velocity = new Vector3(moveX, 0f, moveZ);
         // velocity = velocity.normalized * Time.deltaTime * moveSpeed;
@@ -76,9 +79,6 @@ public class PreyController : Agent
 
         rb.MovePosition(transform.position + transform.forward * moveForward * moveSpeed * Time.deltaTime);
         transform.Rotate(0f, moveRotate * moveSpeed, 0f, Space.Self);
-
-        AdjustRaySensorAngle(angleChoice);
-
         ApplyPenalties();
     }
 
@@ -87,7 +87,6 @@ public class PreyController : Agent
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetAxisRaw("Horizontal");
         continuousActions[1] = Input.GetAxisRaw("Vertical");
-        continuousActions[2] = Input.GetKey(KeyCode.Q) ? -1f : (Input.GetKey(KeyCode.E) ? 1f : 0f);
         // continuousActions[1] = Input.GetKey(KeyCode.Space) ? 1.0f : 0.0f;;
     }
 
@@ -106,16 +105,25 @@ public class PreyController : Agent
     {
         ApplyFallPenalty();
         ApplyDistancePenalty();
-        CheckRayView();
+        CheckSensors();
     }
     
-    private void CheckRayView()
+    private void CheckSensors()
     {
-        if (_raySensor == null) return;
-        
-        var rayOutputs = RayPerceptionSensor.Perceive(_raySensor.GetRayPerceptionInput())
-            .RayOutputs;
+        if (_raySensors.Count == 0) return;
 
+        foreach (var raySensor in _raySensors)
+        {
+            var rayOutputs = RayPerceptionSensor.Perceive(raySensor.GetRayPerceptionInput()).RayOutputs;
+            StartCoroutine(CheckRayView(rayOutputs));
+        }
+    }
+
+    /**
+     * Reward for spotting the target
+     */
+    private IEnumerator CheckRayView(RayPerceptionOutput.RayOutput[] rayOutputs)
+    {
         foreach (var rayOutput in rayOutputs)
         {
             GameObject hit = rayOutput.HitGameObject;
@@ -128,10 +136,10 @@ public class PreyController : Agent
             }
             _lastObservedDistanceToTarget = distance;
             _enemyAgentSpotted = true;
-            if (_enemyAgentSpottedFirstTime) return;
+            if (_enemyAgentSpottedFirstTime) yield break;
             _enemyAgentSpottedFirstTime = true;
             AddReward(_spottedHunterReward);
-            return;
+            yield break;
         }
         _enemyAgentSpotted = false;
     }
