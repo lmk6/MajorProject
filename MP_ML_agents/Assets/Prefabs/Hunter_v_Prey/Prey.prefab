@@ -737,9 +737,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5172437654767438938}
     m_Modifications:
+    - target: {fileID: 400004387588868962, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004387588868962, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.13052616
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004387588868962, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 689131504089998719, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 689131504089998719, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
       propertyPath: m_DetectableTags.Array.data[1]
       value: Hunter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067871584923296502, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9914449
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067871584923296502, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.13052624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067871584923296502, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067871584923296502, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067871584923296502, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773448092673662488, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1773448092673662488, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
       propertyPath: m_DetectableTags.Array.data[1]
@@ -798,11 +838,17 @@ PrefabInstance:
       value: Hunter
       objectReference: {fileID: 0}
     - target: {fileID: 8145109077363797699, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+      propertyPath: m_MaxRayDegrees
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145109077363797699, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
       propertyPath: m_DetectableTags.Array.data[1]
       value: Hunter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2492827764862626360, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
+    - {fileID: 3368810517765485921, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd0f9c7dd406a954ea88d16696e7d19e, type: 3}
