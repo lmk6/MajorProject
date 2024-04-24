@@ -13,6 +13,7 @@ public class PreyController : Agent
     [SerializeField] private GameObject raySensorObj;
 
     private Color _defaultColor;
+    private Vector3 _lastHuntersKnownLocation;
 
     // private float _currentDistance = -1;
     private float _keepingDistanceReward = 0.05f;
@@ -54,6 +55,7 @@ public class PreyController : Agent
         classObject.transform.localPosition = spawnPoints[1];
         _closestDistanceToTarget = 999f; // High value to be considered as 'unknown'
         _lastObservedDistanceToTarget = _closestDistanceToTarget;
+        _lastHuntersKnownLocation = new Vector3(0, 0, 0);
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -62,6 +64,7 @@ public class PreyController : Agent
         sensor.AddObservation(_rayAngle);
         sensor.AddObservation(_enemyAgentSpotted);
         sensor.AddObservation(_lastObservedDistanceToTarget);
+        sensor.AddObservation(_lastHuntersKnownLocation);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -120,6 +123,7 @@ public class PreyController : Agent
         {
             GameObject hit = rayOutput.HitGameObject;
             if (hit == null || !hit.CompareTag(enemyAgent.tag)) continue;
+            _lastHuntersKnownLocation = classObject.transform.localPosition;
             var distance = Vector3.Distance(transform.localPosition, hit.transform.localPosition);
             if (distance >= _closestDistanceToTarget)
             {
