@@ -28,4 +28,12 @@
 - Hunter spotted (1)
 - Last observed distance to Hunter (1)
 
-## PreyVsHunter_43:
+## Noted issue:
+The ray's sphere casts were hitting an unidentified object attached to the Hunter Agent essentially disabling him from seeing anything in front of it. I suspect the Hunter's "stick" object, however despite many tries I could not prove it. 
+
+This true issue was discovered after the last experiment, rendering the results of the experiment irrelevant. The element expected to be causing it at first was the large sphere cast size causing the spheres to overlap and block each other. 
+
+As the result, these experiments were focused on testing different sizes of sphere casts, and their lack in hope to troubleshoot the issue. Any conclusions would be false at this time.
+
+## Cumulative Rewards
+![Cumulative Reward Chart](CumulativeReward_1.png)

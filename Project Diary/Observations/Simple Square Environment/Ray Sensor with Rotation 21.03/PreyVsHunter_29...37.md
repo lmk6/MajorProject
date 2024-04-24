@@ -33,6 +33,13 @@ Model does not achieve anything and took longer to train.
 ### Result
 Model learnt well, however not as completely (speaking mainly of Hunter) as model #28.
 It sems like the model achieved a better cumulative reward at the beginning but then slowed down in learning quite a bit.
+## Cumulative Reward
+![Cumulative Reward](CumulativeReward_29-34.png)
+Increasing the Learning Rate, changing epsilon and increasing number of Epochs does not give promising results.
+## Entropy
+![Entropy](Entropy_29-34.png)
+Increasing learning rate to 0.03 caused the entropy to sky-rocket compared to other models.
+
 ## PreyVsHunter_35
 ### Hyperparameters (changed):
 - Learning Rate = 0.0001
@@ -44,8 +51,15 @@ Learning seems a bit more stable.
 - Learning Rate = 0.0001
 ### Result
 Nearly the same but shows how randomness can impact the training.
-## PreyVsHunter_37
+## PreyVsHunter_37 - repeat
 ### Hyperparameters (changed):
 - Learning Rate = 0.0001
+
+## Cumulative Reward 34...37
+![Cumulative Reward](CumulativeReward_34-37.png)
+## Entropy 34...37
+![Epsilon](Entropy_34-37.png)
 ### Result
-// to be analysed further
+*Issue found: experiment 37 conducted on a different device, hence nearly doubled learning time*
+Change in Learning Rate shows not much change in the Cumulative Reward but seems to take up less resources given the shorter training time (#35-36).
+There is, however, a notable difference in Entropy; the higher learning rate significantly drops the epsilon / randomness.
