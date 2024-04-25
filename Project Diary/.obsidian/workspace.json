@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/PreyVsHunter_23...28 focusing on 28.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/PreyVsHunter_43..46.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/PreyVsHunter_23...28 focusing on 28.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/PreyVsHunter_43..46.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/PreyVsHunter_23...28 focusing on 28.md",
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/PreyVsHunter_43..46.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/PreyVsHunter_23...28 focusing on 28.md"
+                "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/PreyVsHunter_43..46.md"
               }
             }
           }
@@ -146,73 +146,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "floating": {
-    "id": "e84b7143040587b5",
-    "type": "floating",
-    "children": [
-      {
-        "id": "86c952663514b32c",
-        "type": "window",
-        "children": [
-          {
-            "id": "0ddc46867e5d48f1",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "f4993c9b51eae8fa",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/PreyVsHunter_29...37.md",
-                    "mode": "source",
-                    "source": false
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 0,
-        "y": 0,
-        "width": 1280,
-        "height": 1392,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
   "active": "54c273b8dc3b28bd",
   "lastOpenFiles": [
+    "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/Entropy.png",
+    "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/CumulativeReward.png",
+    "Pasted image 20240424234356.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/Entropy_34-37.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/Entropy_29-34.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/CumulativeReward_34-37.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/CumulativeReward_29-34.png",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/CumulativeReward_1.png",
+    "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/PreyVsHunter_55...57.md",
+    "Observations/Simple Square Environment/Fixed Ray Sensor 21.04",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/PreyVsHunter_43..46.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/PreyVsHunter_29...37.md",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/PreyVsHunter_23...28 focusing on 28.md",
-    "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/PreyVsHunter_55...57.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/CumulativeReward.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/PreyVsHunter_38...42.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/PreyVsHunter_23...28 focusing on 28.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/ValueLoss.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PolicyLoss.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 17.03/PreyVsHunter_19.md",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/Entropy.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/ValueLoss.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/CumulativeReward.png",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PreyVsHunter_3.md",
-    "Observations/Simple Square Environment/Fixed Ray Sensor 21.04",
     "Weekly/Week 12.md",
     "Weekly/Week 10.md",
     "Weekly/Week 9.md",
     "Weekly/Week 8.md",
     "Weekly/Week 5.md",
     "Weekly/Week 4.md",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/Entropy.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/CumulativeReward.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 19.03/CumulativeReward.png",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 17.03/Entropy.png",
     "Untitled.canvas",
     "Untitled.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/PreyVsHunter_16_17.md",
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 16.03/ValueLoss.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04",
     "Observations/Realistic Environment/Ray Sensor with Rotation 04.04",
     "Research Questions.md",
