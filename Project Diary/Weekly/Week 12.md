@@ -41,3 +41,16 @@
 - Starting the Final Report.
 #### Obstacles:
 - Curriculum might be the only way of teaching the right behaviour but it is very hard to achieve.
+# Saturday
+### Daily Scrum:
+#### Accomplished yesterday:
+- Run more experiments (#50-54):
+	- increased number of hidden units to 512
+	- New observations for hunter: last observed Prey's position
+	- Batch size, batch buffer x2 increase (Hunter)
+	- epochs: 10 (Hunter)
+	- loosing sight of Prey penalty
+#### To accomplish today:
+- Try to run experiments with fixed rays instead
+#### Obstacles:
+- Almost no time for any advances before project submission.

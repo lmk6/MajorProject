@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/PreyVsHunter_55...57.md",
+                "file": "Weekly/Week 13.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/PreyVsHunter_55...57.md",
+                "file": "Weekly/Week 13.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/PreyVsHunter_55...57.md",
+                "file": "Weekly/Week 13.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/PreyVsHunter_55...57.md"
+                "file": "Weekly/Week 13.md"
               }
             }
           }
@@ -148,8 +148,10 @@
   },
   "active": "54c273b8dc3b28bd",
   "lastOpenFiles": [
-    "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/PreyVsHunter_29...37.md",
+    "Weekly/Week 12.md",
+    "Weekly/Week 13.md",
     "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/PreyVsHunter_55...57.md",
+    "Observations/Simple Square Environment/Ray Sensor with Rotation 21.03/PreyVsHunter_29...37.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 16.04/PreyVsHunter_43..46.md",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/PreyVsHunter_5.md",
     "Observations/Simple Square Environment/Fixed Ray Sensor 21.04/Entropy.png",
@@ -167,7 +169,6 @@
     "Observations/Simple Square Environment/Ray Sensor with Rotation 05.03/ValueLoss.png",
     "Observations/Simple Square Environment/Ray Sensor with Rotation 17.03/PreyVsHunter_19.md",
     "Observations/Realistic Environment/Ray Sensor with Rotation 02.03/PreyVsHunter_3.md",
-    "Weekly/Week 12.md",
     "Weekly/Week 10.md",
     "Weekly/Week 9.md",
     "Weekly/Week 8.md",
