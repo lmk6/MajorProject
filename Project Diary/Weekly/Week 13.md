@@ -42,3 +42,11 @@
 - Finalise the first section of the report and begun/finish the "Experiment Methods".
 ### Obstacles:
 - Not sure about what is expected from some of the sections.
+# Saturday
+### Achieved since last session:
+- Reviewed the page on final report
+### To be achieved today:
+- Complete at least first two chapters
+### Obstacles:
+- I need to find time to prepare appendices
+- I need to find time to prepare statistical tests on at least the most meaningful experiments.
