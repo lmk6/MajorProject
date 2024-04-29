@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TwoAgentsScene.unity
     guid: e95fa77ebba1ab04ca6ce12a5602f16a
+  - enabled: 1
+    path: Assets/Scenes/RealisticEnvScene.unity
+    guid: c86db804be9f3bf46bc5841a2a7beda5
   m_configObjects: {}
