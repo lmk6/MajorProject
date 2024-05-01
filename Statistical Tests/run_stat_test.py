@@ -1,7 +1,7 @@
 import pandas as pd
 import sys
 import argparse
-from scipy.stats import ttest_ind, f
+from scipy.stats import ttest_ind, ranksums
 
 def load_data(filename_1, filename_2):
     try:
@@ -26,26 +26,9 @@ def conduct_statistical_test(data1, data2):
     # Set to 5%
     significance_level = 0.05
 
-    mean_1 = value1.mean()
-    mean_2 = value2.mean()
+    stat, p_value = ranksums(value1, value2)
 
-    cv1 = std_dev1 / abs(mean_1) if mean_1 != 0 else float('inf')
-
-    cv2 = std_dev2 / abs(mean_2) if mean_2 != 0 else float('inf')
-
-    print(f"Coefficient of variation for file 1: {cv1}\nCoefficient of variation for file 2: {cv2}")
-
-    num_of_data_points_1 = len(value1)
-    num_of_data_points_2 = len(value2)
-    
-    degrees_of_freedom_1 = num_of_data_points_1 - 1
-    degrees_of_freedom_2 = num_of_data_points_2 - 1
-
-    f_stat = (std_dev1 ** 2) / (std_dev2 ** 2)
-
-    # p_value represents the difference in datasets
-    p_value = f.cdf(f_stat, degrees_of_freedom_1, degrees_of_freedom_2)
-
+    print(f"Wilcoxon rank sum test statistic: {stat}, p-value: {p_value}")
 
     if p_value < significance_level:
         print(f"P-value = {p_value}, There is a significant difference")

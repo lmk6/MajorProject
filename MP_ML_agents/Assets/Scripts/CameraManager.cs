@@ -6,8 +6,10 @@ public class CameraManager : MonoBehaviour
     private Camera[] _cameras;
 
     private int _cameraIndex;
-    // Start is called before the first frame update
 
+    /**
+     * Purpose of this function is basically to switch to the next camera on the list
+     */
     private void ManageCamera()
     {
         if (_cameras.Length == 0) return;
@@ -19,6 +21,9 @@ public class CameraManager : MonoBehaviour
         _cameras[_cameraIndex].gameObject.SetActive(true);
     }
 
+    /**
+     * Start is called before the first frame and sets only the first found camera active.
+     */
     void Start()
     {
         _cameras = FindObjectsOfType<Camera>();
@@ -29,8 +34,10 @@ public class CameraManager : MonoBehaviour
         }
         _cameras[_cameraIndex].gameObject.SetActive(true);
     }
-
-    // Update is called once per frame
+    
+    /**
+     * Inside update, an if statement detects a left mouse button press to switch the camera
+     */
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

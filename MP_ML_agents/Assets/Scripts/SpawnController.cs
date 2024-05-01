@@ -20,6 +20,9 @@ public class SpawnController : MonoBehaviour
     private List<GameObject> _obstacles;
     private readonly float _spawnHeightOffset = 0.3f;
 
+    /**
+     * 
+     */
     public Vector3[] GetAgentsSpawnPoints()
     {
         _validSpawnArea = new List<Vector3>(_startingSpawnArea);
