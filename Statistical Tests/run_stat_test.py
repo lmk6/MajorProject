@@ -3,6 +3,9 @@ import sys
 import argparse
 from scipy.stats import ttest_ind, ranksums
 
+"""
+loads in the .csv files and returns them as pandas dataframes
+"""
 def load_data(filename_1, filename_2):
     try:
         data1 = pd.read_csv(filename_1)
@@ -12,6 +15,10 @@ def load_data(filename_1, filename_2):
         print(f"File not found: {error}")
         sys.exit(1)
 
+"""
+Function conducting the statistical test
+It calculates a standard deviation and conducts the Wilcoxon rank sum test on the two data samples
+"""
 def conduct_statistical_test(data1, data2):
 
     value1 = data1['Value']
