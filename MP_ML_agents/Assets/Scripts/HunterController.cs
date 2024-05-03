@@ -106,6 +106,9 @@ public class HunterController : Agent
         }
     }
 
+    /**
+     * Applies penalty whenever called with Prey agent not in sight
+     */
     private void LostPreyFromSightPenalty()
     {
         if (_enemyAgentSpottedFirstTime)
@@ -114,6 +117,9 @@ public class HunterController : Agent
         }
     }
 
+    /**
+     * Adjusts the agent's ray sensor angle
+     */
     private void AdjustRaySensorAngle(float angleChoice)
     {
         if (raySensorObj == null || angleChoice == 0) return;
@@ -140,6 +146,9 @@ public class HunterController : Agent
         EndEpisode();
     }
 
+    /**
+     * Checks hunger level and applies penalty or terminates episode
+     */
     private void CheckHungerLevel()
     {
         if (_timeOnHunger >= maximumOnHungerTime)
@@ -150,9 +159,9 @@ public class HunterController : Agent
             classObject.EndEpisode();
         }
     }
-
+    
     /**
-     * Reward for spotting the target
+     * Checks what is within the ray view of the agent and applies the reward accordingly
      */
     private void CheckRayView()
     {

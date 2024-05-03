@@ -94,6 +94,9 @@ public class PreyController : Agent
         // continuousActions[1] = Input.GetKey(KeyCode.Space) ? 1.0f : 0.0f;;
     }
 
+    /**
+     * Adjusts the angle the sensor is rotated at
+     */
     private void AdjustRaySensorAngle(float angleChoice)
     {
         if (raySensorObj == null || angleChoice == 0) return;
@@ -111,7 +114,10 @@ public class PreyController : Agent
         ApplyDistancePenalty();
         CheckRayView();
     }
-    
+
+    /**
+     * Checks what is within the ray view of the agent and applies the reward accordingly
+     */
     private void CheckRayView()
     {
         if (_raySensor == null) return;

@@ -21,7 +21,7 @@ public class SpawnController : MonoBehaviour
     private readonly float _spawnHeightOffset = 0.3f;
 
     /**
-     * 
+     * Respawns the obstacles at random position and returns the new spawning points for agents
      */
     public Vector3[] GetAgentsSpawnPoints()
     {
@@ -34,6 +34,9 @@ public class SpawnController : MonoBehaviour
         return new[] { spawnPoint1, spawnPoint2 };
     }
 
+    /**
+     * Spawns obstacles within the environment
+     */
     private void SpawnObstacles()
     {
         var prefabs = new List<GameObject>() { obstacle1, obstacle2, obstacle3 };
@@ -49,6 +52,9 @@ public class SpawnController : MonoBehaviour
         });
     }
 
+    /**
+     * Returns a random rotation for objects to spawn with
+     */
     private Quaternion GetRotation()
     {
         float randomYRotation = Random.Range(0f, 360f); // Random rotation around Y axis
@@ -56,6 +62,9 @@ public class SpawnController : MonoBehaviour
         return Quaternion.Euler(0f, randomYRotation, 0f);
     }
 
+    /**
+     * computes a new spawn point
+     */
     private Vector3 GetSpawnPoint()
     {
         if (!_validSpawnArea.Any())
@@ -68,12 +77,16 @@ public class SpawnController : MonoBehaviour
         return newSpawnPoint;
     }
 
+    /**
+     * Removes Spawn points within minimum distance
+     */
     private void RemoveSpawnAreaCloseTo(Vector3 newSpawnPoint)
     {
         _validSpawnArea.RemoveAll(point => 
             Vector3.Distance(newSpawnPoint, point) < minimumDistanceBetweenAgents);
     }
 
+    
     private void Awake()
     {
         _startingSpawnArea = new List<Vector3>();
@@ -83,6 +96,9 @@ public class SpawnController : MonoBehaviour
         ComputeStartingSpawnArea();
     }
 
+    /**
+     * Computes Spawning area for specific environments
+     */
     private void ComputeStartingSpawnArea()
     {
         if (terrain != null) ComputeValidSpawnAreaForTerrain();
